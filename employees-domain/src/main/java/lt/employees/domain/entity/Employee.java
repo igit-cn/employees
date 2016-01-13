@@ -15,7 +15,7 @@ public class Employee {
 	
 	private String firstName;
 	
-	private String LastName;
+	private String lastName;
 
 	public Integer getId() {
 		return id;
@@ -34,11 +34,11 @@ public class Employee {
 	}
 
 	public String getLastName() {
-		return LastName;
+		return lastName;
 	}
 
 	public void setLastName(String lastName) {
-		LastName = lastName;
+		this.lastName = lastName;
 	}
 
 }
