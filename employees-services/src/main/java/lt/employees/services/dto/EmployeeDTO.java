@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement
-@XmlType(propOrder={"id", "firstName", "lastName"})
+@XmlType(propOrder={"id", "firstName", "lastName", "address"})
 public class EmployeeDTO {
 
 	private Integer id;
@@ -12,6 +12,8 @@ public class EmployeeDTO {
 	private String firstName;
 	
 	private String lastName;
+
+    private AddressDTO address;
 
 	public Integer getId() {
 		return id;
@@ -37,4 +39,11 @@ public class EmployeeDTO {
 		this.lastName = lastName;
 	}
 
+    public AddressDTO getAddress() {
+        return address;
+    }
+
+    public void setAddress(AddressDTO address) {
+        this.address = address;
+    }
 }
