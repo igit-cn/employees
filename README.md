@@ -5,6 +5,8 @@ To run app with plugin:
 
 2. Go to employees-app and run `mvn tomee:run`.
 
+3. Load http://localhost:8080/employees/
+
 ### Running App on application server
 You must have TomEE JAX-RS or other application server with EE features to run this app.
 
