@@ -1,7 +1,9 @@
 ### Running App with maven TomEE plugin
 To run app with plugin:
-1. build entire project with maven `mvn clean install`
-2. Go to employees-app and run `mvn tomee:run`
+
+1. Build entire project with maven `mvn clean install`.
+
+2. Go to employees-app and run `mvn tomee:run`.
 
 ### Running App on application server
 You must have TomEE JAX-RS or other application server with EE features to run this app.
