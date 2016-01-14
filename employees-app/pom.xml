@@ -16,6 +16,20 @@
 
 	<build>
 		<finalName>employees</finalName>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.openejb.maven</groupId>
+				<artifactId>tomee-maven-plugin</artifactId>
+				<version>1.7.1</version>
+				<configuration>
+					<tomeeClassifier>jaxrs</tomeeClassifier>
+					<tomeeVersion>1.7.1</tomeeVersion>
+					<tomeeClassifier>plus</tomeeClassifier>
+					<path>/employees</path>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 
 	<dependencies>
