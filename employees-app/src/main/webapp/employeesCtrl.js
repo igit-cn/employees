@@ -41,10 +41,11 @@ employeesApp.controller('employeeEditCtrl', function($scope, employee, employees
     $scope.saveEmployee = function() {
         employeesREST.saveEmployee($scope.employee.current).then(
             function(data) {
-                employee.current = {id: undefined, firsName: undefined, lastName: undefined};
+                employee.current = {id: undefined, firsName: undefined, lastName: undefined, address: {id: undefined, country: undefined, city: undefined, address: undefined}};
 
                 employeesREST.getEmployees().then(
                     function(result) {
+                        $scope.employeeForm.$setPristine();
                         employees.setEmployees(result);
                     }, function(error) {
                         $scope.notice = error;

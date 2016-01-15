@@ -1,4 +1,4 @@
-var employeesApp = angular.module('employeesApp', []);
+var employeesApp = angular.module('employeesApp', ['ngMessages']);
 
 employeesApp.value('restURL', "http://localhost:8080/employees/rest/api");
 
@@ -65,12 +65,7 @@ employeesApp.factory('employees', function() {
 employeesApp.factory('employee', function() {
     var employee = {};
 
-    employee.current = {firstName: undefined, lastName: undefined, id: undefined};
-
-    /*employee.setEmployee = function(data) {
-        employee.current = data;
-        console.log(employee.current);
-    }*/
+    employee.current = {firstName: undefined, lastName: undefined, id: undefined, address: {id: undefined, country: undefined, city: undefined, address: undefined}};
 
     return employee;
 });
