@@ -1,4 +1,4 @@
-var employeesApp = angular.module('employeesApp', ['ngMessages']);
+var employeesApp = angular.module('employeesApp', []);
 
 employeesApp.value('restURL', "http://localhost:8080/employees/rest/api");
 
