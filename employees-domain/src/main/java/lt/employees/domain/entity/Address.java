@@ -1,9 +1,6 @@
 package lt.employees.domain.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Entity holds employee address info
@@ -58,4 +55,5 @@ public class Address {
     public String toString() {
         return country + ", " + city + ", " + address;
     }
+
 }
