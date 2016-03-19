@@ -1,17 +1,14 @@
 package lt.employees.domain.dao.impl;
 
-import java.util.List;
+import lt.employees.domain.dao.EmployeesDAO;
+import lt.employees.domain.entity.Employee;
 
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import java.util.List;
 
-import lt.employees.domain.dao.EmployeesDAO;
-import lt.employees.domain.entity.Employee;
-
-@Stateless
 public class EmployeesDAOImpl implements EmployeesDAO {
 	
 	private EntityManager entityManager = Persistence.createEntityManagerFactory("employees").createEntityManager();

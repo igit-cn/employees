@@ -1,4 +1,4 @@
-package lt.employees.app.response;
+package lt.employees.app.rest.response;
 
 import java.util.ArrayList;
 import java.util.List;
