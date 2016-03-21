@@ -7,7 +7,7 @@ employeesApp.factory('employeesREST', function($q, $http, restURL) {
         getEmployees: function() {
             return $http.get(restURL + '/employees').then(
                 function(response) {
-                    return $q.resolve(response.data.employeesResponse.employees);
+                    return $q.resolve(response.data.employees);
                 },
                 function(response) {
                     return $q.reject(response.status + " " + response.data.error);
@@ -15,12 +15,7 @@ employeesApp.factory('employeesREST', function($q, $http, restURL) {
             );
         },
         saveEmployee: function(employee) {
-            function EmployeeSaveRequest(employeeDTO) {
-                this.employeeDTO = employeeDTO;
-            }
-            var request = new EmployeeSaveRequest(employee);
-
-            return $http.post(restURL + '/employees/save', request).then(
+            return $http.post(restURL + '/employees/save', employee).then(
                 function(response) {
                     return $q.resolve(response.data);
                 },
