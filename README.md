@@ -1,19 +1,15 @@
 ###Prepare code and database for app
-1. Build entire project with maven `mvn clean install`.
+1. Build entire project with maven `mvn clean install` or run `build.bat`.
 
-2. Create database and update `employee-app/src/db/liquibase.properties` with newly created database credentials.
+2. Run mysql server, update `employee-app/src/db/liquibase.properties` with mysql credentials.
 
-3. Go to `employee-app` and run liquibase command: `mvn liquibase:update`.
+3. Run `run-liquibae.bat` or go to `employee-app` and run liquibase command: `mvn liquibase:update`.
 
-### Running App with maven TomEE plugin
-1. Go to `employees-app` and run `mvn tomee:run`.
+### Running App with maven Tomcat plugin
+1. Run `run-app.bat` or go to `employees-app` and run `mvn clean tomcat7:run-war`.
 
 2. Load [localhost:8080/employees](http://localhost:8080/employees/)
 
 ### Running App on application server
-You must have TomEE JAX-RS or other application server with EE features to run this app.
-
-If you use TomEE JAX-RS application server, you can create `employees.xml` context file and put it to `{TomEE_HOME}\conf\Catalina\localhost\`.
-
-####`employees.xml`
-`<Context docBase="{PATH_TO_SOURCE}\employees-app\target\employees\" path="" reloadable="true" />`
+You can run app without maven tomcat plugin. Simply copy `employees.war` from `{project_home}/employees-app/target` directory to
+`{tomcat_home}/webapp` directory and run server.
