@@ -24,6 +24,7 @@
                 <version>2.2</version>
                 <configuration>
                     <path>/${project.build.finalName}</path>
+                    <contextFile>src\main\webapp\META-INF\context.xml</contextFile>
                 </configuration>
             </plugin>
 
