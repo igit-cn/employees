@@ -19,11 +19,60 @@
 
         <plugins>
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>read-project-properties</goal>
+                        </goals>
+                        <configuration>
+                            <files>
+                                <file>src/main/resources/database.properties</file>
+                            </files>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.7</version>
+                <executions>
+                    <execution>
+                        <id>create-tomcat-context-xml</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <resources>
+                                <resource>
+                                    <directory>src/tomcat</directory>
+                                    <filtering>true</filtering>
+                                    <includes>
+                                        <include>context.xml</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                            <outputDirectory>${project.build.directory}/tomcatconf</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <escapeString>\</escapeString>
+                </configuration>
+            </plugin>
+
+            <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
                     <path>/${project.build.finalName}</path>
+                    <contextFile>${project.build.directory}/tomcatconf/context.xml</contextFile>
                 </configuration>
             </plugin>
 
@@ -32,7 +81,13 @@
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>3.4.2</version>
                 <configuration>
-                    <propertyFile>src\main\db\liquibase.properties</propertyFile>
+                    <changeLogFile>${changeLogFile}</changeLogFile>
+                    <driver>${driver}</driver>
+                    <url>${url}?createDatabaseIfNotExist=true</url>
+                    <username>${username}</username>
+                    <password>${password}</password>
+                    <verbose>${verbose}</verbose>
+                    <dropFirst>${dropFirst}</dropFirst>
                 </configuration>
                 <dependencies>
                     <dependency>
