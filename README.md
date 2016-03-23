@@ -3,7 +3,7 @@
 
 2. Run mysql server, update `employee-app/src/db/liquibase.properties` with mysql credentials.
 
-3. Run `run-liquibae.bat` or go to `employee-app` and run liquibase command: `mvn liquibase:update`.
+3. Run `run-liquibase.bat` or go to `employee-app` and run liquibase command: `mvn liquibase:update`.
 
 ### Running App with maven Tomcat plugin
 1. Run `run-app.bat` or go to `employees-app` and run `mvn clean tomcat7:run-war`.
