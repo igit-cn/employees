@@ -14,7 +14,7 @@ import java.util.Set;
 public class JaxRsApiApplication extends Application {
 
     @Inject
-    private Employees employeesApi;
+    private EmployeesRestApi employeesRestApi;
 
     @Produces
     private JacksonJsonProvider jacksonJsonProvider = new JacksonJsonProvider();
@@ -22,7 +22,7 @@ public class JaxRsApiApplication extends Application {
     @Override
     public Set<Object> getSingletons() {
         return new HashSet<Object>(Arrays.asList(
-                employeesApi,
+                employeesRestApi,
                 jacksonJsonProvider
         ));
     }

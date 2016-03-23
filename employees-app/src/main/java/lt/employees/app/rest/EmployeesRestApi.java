@@ -11,7 +11,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path("/employees")
-public class Employees {
+public class EmployeesRestApi {
 	
 	@Inject
 	private EmployeesService employeesService;
