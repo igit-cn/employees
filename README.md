@@ -12,4 +12,5 @@
 
 ### Running App on application server
 You can run app without maven tomcat plugin. Simply copy `employees.war` from `{project_home}/employees-app/target` directory to
-`{tomcat_home}/webapp` directory and run server.
+`{tomcat_home}/webapp` directory and run server. Also you must create context.xml with database connection or you can take it from
+`{project-home}/employees-app/target/tomcatconf/context.xml`.
