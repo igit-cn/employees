@@ -26,7 +26,9 @@
 			<ref bean="employeesRest"/>
 		</jaxrs:serviceBeans>
 		<jaxrs:providers>
-			<bean class="org.apache.cxf.jaxrs.provider.json.JSONProvider" />
+			<bean class="org.apache.cxf.jaxrs.provider.json.JSONProvider">
+				<property name="dropRootElement" value="true"/>
+			</bean>
 		</jaxrs:providers>
 	</jaxrs:server>
 
