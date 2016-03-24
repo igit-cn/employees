@@ -10,12 +10,15 @@ import lt.employees.services.dto.EmployeeDTO;
 
 @XmlRootElement
 public class EmployeesResponse {
-	
-	private List<EmployeeDTO> employees = new ArrayList<EmployeeDTO>();
 
 	@XmlElement
+	private List<EmployeeDTO> employees = new ArrayList<EmployeeDTO>();
+
+	public void addEmployee(EmployeeDTO employee) {
+		employees.add(employee);
+	}
+
 	public List<EmployeeDTO> getEmployees() {
 		return employees;
 	}
-
 }

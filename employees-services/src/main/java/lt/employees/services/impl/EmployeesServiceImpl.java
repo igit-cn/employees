@@ -1,17 +1,15 @@
 package lt.employees.services.impl;
 
+import java.util.List;
+
 import lt.employees.domain.dao.EmployeesDAO;
 import lt.employees.domain.entity.Employee;
 import lt.employees.services.EmployeesService;
 import lt.employees.services.converters.EmployeeConverter;
 import lt.employees.services.dto.EmployeeDTO;
 
-import javax.inject.Inject;
-import java.util.List;
-
 public class EmployeesServiceImpl implements EmployeesService {
-	
-	@Inject
+
 	private EmployeesDAO employeesDAO;
 
 	public List<EmployeeDTO> fetchEmployees() {
@@ -33,4 +31,7 @@ public class EmployeesServiceImpl implements EmployeesService {
 		employeesDAO.deleteEmployee(id);
 	}
 
+	public void setEmployeesDAO(final EmployeesDAO employeesDAO) {
+		this.employeesDAO = employeesDAO;
+	}
 }

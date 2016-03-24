@@ -1,19 +1,24 @@
 package lt.employees.app.rest;
 
+import java.util.List;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
 import lt.employees.app.rest.response.EmployeesResponse;
 import lt.employees.services.EmployeesService;
 import lt.employees.services.dto.EmployeeDTO;
 
-import javax.inject.Inject;
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import java.util.List;
-
 @Path("/employees")
 public class EmployeesRestApi {
-	
-	@Inject
+
 	private EmployeesService employeesService;
 
 	@GET
@@ -22,8 +27,11 @@ public class EmployeesRestApi {
 		List<EmployeeDTO> employees = employeesService.fetchEmployees();
 		
 		EmployeesResponse response = new EmployeesResponse();
-		response.getEmployees().addAll(employees);
-		
+		for (EmployeeDTO employee : employees) {
+//			final Link link = Link.fromMethod(getClass(), "fetchEmployeeById").build(employee.getId());
+			response.addEmployee(employee);
+		}
+
 		return Response.status(Response.Status.OK).entity(response).build();
 	}
 	
@@ -54,5 +62,8 @@ public class EmployeesRestApi {
 		
 		return Response.status(Response.Status.OK).build();
 	}
-	
+
+	public void setEmployeesService(final EmployeesService employeesService) {
+		this.employeesService = employeesService;
+	}
 }
