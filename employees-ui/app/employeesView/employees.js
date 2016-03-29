@@ -9,6 +9,6 @@ angular.module('employeesApp.employeesView', ['ngRoute'])
   });
 }])
 
-.controller('employeesView', [function() {
-
+.controller('employeesViewCtrl', ['$scope', 'EmployeesFactory', function($scope, EmployeesFactory) {
+    $scope.employees = EmployeesFactory.fetch();
 }]);
