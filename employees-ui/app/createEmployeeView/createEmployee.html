@@ -1,0 +1,47 @@
+<div class="container">
+	<h3>Create New Employee:</h3>
+
+	<form class="form-horizontal" name="employeeForm" ng-submit="createEmployee()" novalidate>
+		<div class="form-group" ng-class="{'has-error': employeeForm.firstName.$invalid && !employeeForm.firstName.$pristine}">
+			<label class="col-sm-2 control-label">First Name:</label>
+			<div class="col-sm-10">
+				<input type="text" name="firstName" ng-model="employee.firstName" placeholder="First Name" required>
+				<p ng-show="employeeForm.firstName.$invalid && !employeeForm.firstName.$pristine" class="help-block">First name is required.</p>
+			</div>
+		</div>
+
+		<div class="form-group" ng-class="{'has-error': employeeForm.lastName.$invalid && !employeeForm.lastName.$pristine}">
+			<label class="col-sm-2 control-label">Last Name:</label>
+			<div class="col-sm-10">
+				<input type="text" name="lastName" ng-model="employee.lastName" placeholder="Last Name" required>
+				<p ng-show="employeeForm.lastName.$invalid && !employeeForm.lastName.$pristine" class="help-block">Last name is required.</p>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Country:</label>
+			<div class="col-sm-10">
+				<input type="text" ng-model="employee.address.country" placeholder="Last Name">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-2 control-label">City:</label>
+			<div class="col-sm-10">
+				<input type="text" ng-model="employee.address.city" placeholder="Last Name">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Address:</label>
+			<div class="col-sm-10">
+				<input type="text" ng-model="employee.address.address" placeholder="Last Name">
+			</div>
+		</div>
+
+		<hr>
+		<button class="btn btn-success" type="submit" ng-disabled="employeeForm.$invalid">
+			<span class="glyphicon glyphicon-save">&nbsp;Save</span>
+		</button>
+	</form>
+</div>

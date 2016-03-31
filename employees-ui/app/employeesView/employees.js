@@ -10,5 +10,12 @@ angular.module('employeesApp.employeesView', ['ngRoute'])
 }])
 
 .controller('employeesViewCtrl', ['$scope', 'EmployeesFactory', function($scope, EmployeesFactory) {
-    $scope.employees = EmployeesFactory.fetch();
+	EmployeesFactory.fetch().$promise.then(
+		function(result) {
+			$scope.employees = result.employees;
+		},
+		function(error) {
+			$scope.notice = error;
+		}
+	)
 }]);
