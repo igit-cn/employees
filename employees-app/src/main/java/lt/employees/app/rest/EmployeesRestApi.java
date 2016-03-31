@@ -45,7 +45,6 @@ public class EmployeesRestApi {
 	}
 	
 	@POST
-	@Path("/save")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response saveEmployee(EmployeeDTO employee) {
@@ -55,7 +54,7 @@ public class EmployeesRestApi {
 	}
 	
 	@DELETE
-	@Path("/remove/{id}")
+	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response deleteEmployee(@PathParam("id") int id) {
 		employeesService.deleteEmployee(id);

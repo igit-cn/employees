@@ -29,6 +29,20 @@
 			<bean class="org.apache.cxf.jaxrs.provider.json.JSONProvider">
 				<property name="dropRootElement" value="true"/>
 			</bean>
+			<bean class="org.apache.cxf.rs.security.cors.CrossOriginResourceSharingFilter">
+				<property name="allowOrigins">
+					<list>
+						<value>http://localhost:8000</value>
+					</list>
+				</property>
+				<property name="allowHeaders">
+					<list>
+						<value>Access-Control-Allow-Origin</value>
+						<value>accept</value>
+						<value>content-type</value>
+					</list>
+				</property>
+			</bean>
 		</jaxrs:providers>
 	</jaxrs:server>
 
