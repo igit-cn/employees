@@ -1,6 +1,6 @@
 package lt.employees.app.rest;
 
-import java.util.List;
+import java.util.Collection;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -12,7 +12,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import lt.employees.app.rest.response.EmployeesResponse;
 import lt.employees.services.EmployeesService;
 import lt.employees.services.dto.EmployeeDTO;
 
@@ -23,16 +22,8 @@ public class EmployeesRestApi {
 
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
-	public Response fetchEmployees() {
-		List<EmployeeDTO> employees = employeesService.fetchEmployees();
-		
-		EmployeesResponse response = new EmployeesResponse();
-		for (EmployeeDTO employee : employees) {
-//			final Link link = Link.fromMethod(getClass(), "fetchEmployeeById").build(employee.getId());
-			response.addEmployee(employee);
-		}
-
-		return Response.status(Response.Status.OK).entity(response).build();
+	public Collection fetchEmployees() {
+		return employeesService.fetchEmployees();
 	}
 	
 	@GET
