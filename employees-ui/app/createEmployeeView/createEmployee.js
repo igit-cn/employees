@@ -9,22 +9,9 @@ angular.module('employeesApp.createEmployeeView', ['ngRoute'])
   });
 }])
 
-.controller('createEmployeeViewCtrl', ['$scope', 'EmployeesFactory', function($scope, EmployeesFactory) {
+.controller('createEmployeeViewCtrl', ['$scope', 'EmployeesFactory', '$location', function($scope, EmployeesFactory, $location) {
   $scope.createEmployee = function () {
-  	var newAddress = {
-  		id: undefined,
-  		country:  $scope.employee.address.country,
-  		city:  $scope.employee.address.city,
-  		address:  $scope.employee.address.address
-  	}
-  	var newEmployee = {
-  		employeeDTO: {
-  			id: undefined,
-  			firstName: $scope.employee.firstName,
-  			lastName: $scope.employee.lastName,
-  			address: newAddress
-  	}};
-
-    EmployeesFactory.create(newEmployee);
+    EmployeesFactory.save($scope.employee);
+    $location.path('/employeesView');
   }
 }]);

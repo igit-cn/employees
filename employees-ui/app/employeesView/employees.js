@@ -9,13 +9,11 @@ angular.module('employeesApp.employeesView', ['ngRoute'])
   });
 }])
 
-.controller('employeesViewCtrl', ['$scope', 'EmployeesFactory', function($scope, EmployeesFactory) {
-	EmployeesFactory.fetch().$promise.then(
-		function(result) {
-			$scope.employees = result.employees;
-		},
-		function(error) {
-			$scope.notice = error;
-		}
-	)
+.controller('employeesViewCtrl', ['$scope', 'EmployeesFactory', 'EmployeeFactory', function($scope, EmployeesFactory, EmployeeFactory) {
+	$scope.deleteEmployee = function (employeeId) {
+		EmployeeFactory.remove({id: employeeId});
+		$scope.employees = EmployeesFactory.query();
+	}
+
+	$scope.employees = EmployeesFactory.query();
 }]);

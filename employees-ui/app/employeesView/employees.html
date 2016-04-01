@@ -1,6 +1,4 @@
 <div class="container">
-    <p class="text-danger">{{notice}}</p>
-
     <h3>Employees</h3>
     <table class="table table-striped">
         <thead>
@@ -13,7 +11,11 @@
         <tbody>
             <tr ng-repeat="employee in employees">
                 <td></td>
-                <td></td>
+                <td>
+                    <button class="btn" ng-click="deleteEmployee(employee.id)">
+                        <span class="glyphicon glyphicon-remove">&nbsp;Delete</span>
+                    </button>
+                </td>
                 <td>{{employee.firstName}}</td>
                 <td>{{employee.lastName}}</td>
             </tr>
