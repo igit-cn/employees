@@ -5,7 +5,8 @@ angular.module('employeesApp', [
   'ngRoute',
   'employeesApp.services',
   'employeesApp.employeesView',
-  'employeesApp.createEmployeeView'
+  'employeesApp.createEmployeeView',
+  'employeesApp.editEmployeeView'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/employeesView'});

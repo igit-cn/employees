@@ -10,7 +10,11 @@
 
         <tbody>
             <tr ng-repeat="employee in employees">
-                <td></td>
+                <td>
+                    <button class="btn" ng-click="editEmployee(employee.id)">
+                        <span class="glyphicon glyphicon-pencil">&nbsp;Edit</span>
+                    </button>
+                </td>
                 <td>
                     <button class="btn" ng-click="deleteEmployee(employee.id)">
                         <span class="glyphicon glyphicon-remove">&nbsp;Delete</span>
