@@ -9,11 +9,12 @@ angular.module('employeesApp.employeesView', ['ngRoute'])
   });
 }])
 
-.controller('employeesViewCtrl', ['$scope', 'EmployeesFactory', 'EmployeeFactory', function($scope, EmployeesFactory, EmployeeFactory) {
-	$scope.deleteEmployee = function (employeeId) {
-		EmployeeFactory.remove({id: employeeId});
-		$scope.employees = EmployeesFactory.query();
-	}
-
+.controller('employeesViewCtrl', ['$scope', 'EmployeesFactory', function($scope, EmployeesFactory) {
 	$scope.employees = EmployeesFactory.query();
+
+	$scope.deleteEmployee = function (employeeId) {
+		EmployeesFactory.delete({id: employeeId}, function() {
+			$scope.employees = EmployeesFactory.query();
+		});
+	}
 }]);
