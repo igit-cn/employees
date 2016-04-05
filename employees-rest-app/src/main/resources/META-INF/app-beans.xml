@@ -5,7 +5,7 @@
 			http://www.springframework.org/schema/beans
 			http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="employeesRest" class="lt.employees.rest.app.EmployeesRestApi">
+	<bean id="employeesRest" class="lt.employees.rest.app.service.EmployeesRestApi">
 		<property name="employeesService" ref="employeesService"/>
 	</bean>
 

@@ -1,4 +1,4 @@
-package lt.employees.rest.app;
+package lt.employees.rest.app.service;
 
 import java.util.List;
 
