@@ -10,7 +10,9 @@ import lt.employees.service.dto.EmployeeDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 @Component(value = "employeesService")
 public class EmployeesServiceImpl implements EmployeesService {
 

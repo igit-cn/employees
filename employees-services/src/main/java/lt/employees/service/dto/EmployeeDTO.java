@@ -2,7 +2,7 @@ package lt.employees.service.dto;
 
 public class EmployeeDTO {
 
-	private Integer id;
+	private Long id;
 	
 	private String firstName;
 	
@@ -10,11 +10,11 @@ public class EmployeeDTO {
 
     private AddressDTO address;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

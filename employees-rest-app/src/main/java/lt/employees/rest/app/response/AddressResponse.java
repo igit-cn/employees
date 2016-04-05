@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder={"id", "country", "city", "address"})
 public class AddressResponse {
 
-	private Integer id;
+	private Long id;
 
 	private String country;
 
@@ -18,11 +18,11 @@ public class AddressResponse {
 
 	private String address;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(final Integer id) {
+	public void setId(final Long id) {
 		this.id = id;
 	}
 

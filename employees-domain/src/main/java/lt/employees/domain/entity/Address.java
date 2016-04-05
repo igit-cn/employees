@@ -7,25 +7,13 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "Address")
-public class Address {
-
-    @Id
-    @GeneratedValue
-    private Integer id;
+public class Address extends AbstractEntity {
 
     private String country;
 
     private String city;
 
     private String address;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getCountry() {
         return country;

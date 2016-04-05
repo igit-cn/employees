@@ -5,7 +5,7 @@ package lt.employees.service.dto;
  */
 public class AddressDTO {
 
-    private Integer id;
+    private Long id;
 
     private String country;
 
@@ -13,11 +13,11 @@ public class AddressDTO {
 
     private String address;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

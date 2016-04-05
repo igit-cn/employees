@@ -1,14 +1,12 @@
 package lt.employees.domain.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name="Employee")
-public class Employee {
-	
-	@Id
-	@GeneratedValue
-	private Integer id;
+public class Employee extends AbstractEntity {
 
     @Column(nullable = false)
 	private String firstName;
@@ -18,14 +16,6 @@ public class Employee {
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Address address;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public String getFirstName() {
 		return firstName;
