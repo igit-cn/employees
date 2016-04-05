@@ -1,3 +1,3 @@
-call mvn -f "employees-app\pom.xml" clean install liquibase:update
+call mvn -f "employees-rest-app\pom.xml" clean install liquibase:update
 
 pause
