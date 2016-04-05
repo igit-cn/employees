@@ -9,6 +9,9 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component(value = "employeesDAO")
 public class EmployeesDAOImpl implements EmployeesDAO {
 	
 	private EntityManager entityManager = Persistence.createEntityManagerFactory("employees").createEntityManager();

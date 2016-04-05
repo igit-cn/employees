@@ -17,9 +17,14 @@ import lt.employees.rest.app.response.EmployeeResponse;
 import lt.employees.service.EmployeesService;
 import lt.employees.service.dto.EmployeeDTO;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component(value = "employeesRest")
 @Path("/employees")
 public class EmployeesRestApi {
 
+	@Autowired
 	private EmployeesService employeesService;
 
 	@GET
@@ -57,7 +62,4 @@ public class EmployeesRestApi {
 		return Response.status(Response.Status.OK).build();
 	}
 
-	public void setEmployeesService(final EmployeesService employeesService) {
-		this.employeesService = employeesService;
-	}
 }

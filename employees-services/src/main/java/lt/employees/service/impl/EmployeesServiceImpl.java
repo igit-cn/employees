@@ -8,8 +8,13 @@ import lt.employees.service.EmployeesService;
 import lt.employees.service.converter.EmployeeConverter;
 import lt.employees.service.dto.EmployeeDTO;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component(value = "employeesService")
 public class EmployeesServiceImpl implements EmployeesService {
 
+	@Autowired
 	private EmployeesDAO employeesDAO;
 
 	public List<EmployeeDTO> fetchEmployees() {
@@ -31,7 +36,4 @@ public class EmployeesServiceImpl implements EmployeesService {
 		employeesDAO.deleteEmployee(id);
 	}
 
-	public void setEmployeesDAO(final EmployeesDAO employeesDAO) {
-		this.employeesDAO = employeesDAO;
-	}
 }
