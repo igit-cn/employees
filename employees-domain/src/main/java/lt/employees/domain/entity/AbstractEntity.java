@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 /**
- * Abstract enitity class.
+ * Abstract entity class.
  */
 @MappedSuperclass
 public class AbstractEntity implements Serializable {
