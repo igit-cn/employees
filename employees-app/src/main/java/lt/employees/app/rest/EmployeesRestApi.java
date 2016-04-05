@@ -1,6 +1,7 @@
 package lt.employees.app.rest;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -22,8 +23,10 @@ public class EmployeesRestApi {
 
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
-	public Collection fetchEmployees() {
-		return employeesService.fetchEmployees();
+	public Response fetchEmployees() {
+		final List<EmployeeDTO> employees = employeesService.fetchEmployees();
+
+		return Response.status(Response.Status.OK).entity(employees).build();
 	}
 	
 	@GET
