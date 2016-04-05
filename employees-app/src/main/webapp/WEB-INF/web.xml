@@ -8,7 +8,7 @@
 	<description>Employees Application</description>
 
 	<welcome-file-list>
-		<welcome-file>employees.html</welcome-file>
+		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 
 	<listener>
