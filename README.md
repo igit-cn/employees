@@ -19,4 +19,4 @@ You can run app without maven tomcat plugin. Simply copy `employees.war` from `{
 To run UI App you must have Node JS installed and Bash (Git bash for example).
 You can run server in bash, go to `{project_home}/employees-ui` and execute `npm start`.
 
-Open url: `http://localhost:8000/app/index.html`
+Open url: [http://localhost:8000/app/index.htm](http://localhost:8000/app/index.html)
