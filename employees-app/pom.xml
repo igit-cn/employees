@@ -8,11 +8,11 @@
 		<artifactId>employees-main</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-	<groupId>lt.employees.app</groupId>
-	<artifactId>employees-app</artifactId>
+	<groupId>lt.employees.rest.app</groupId>
+	<artifactId>employees-rest-app</artifactId>
 	<packaging>war</packaging>
 
-	<name>Employee WAR</name>
+	<name>Employee Rest App</name>
 
 	<build>
 		<finalName>employees</finalName>

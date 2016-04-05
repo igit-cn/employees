@@ -1,6 +1,5 @@
-package lt.employees.app.rest;
+package lt.employees.rest.app;
 
-import java.util.Collection;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
