@@ -5,7 +5,7 @@
 			http://www.springframework.org/schema/beans
 			http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="employeesService" class="lt.employees.services.impl.EmployeesServiceImpl">
+	<bean id="employeesService" class="lt.employees.service.impl.EmployeesServiceImpl">
 		<property name="employeesDAO" ref="employeesDAO"/>
 	</bean>
 

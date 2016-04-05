@@ -11,9 +11,9 @@
     <name>Employee Parent</name>
 
     <modules>
-        <module>employees-rest-app</module>
-        <module>employees-services</module>
         <module>employees-domain</module>
+        <module>employees-services</module>
+        <module>employees-rest-app</module>
     </modules>
 
     <properties>

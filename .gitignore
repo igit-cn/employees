@@ -5,4 +5,4 @@
 # Maven target directories #
 /employees-services/target
 /employees-domain/target
-/employees-app/target
+/employees-rest-app/target

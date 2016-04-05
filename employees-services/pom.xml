@@ -8,7 +8,7 @@
 		<artifactId>employees-main</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-	<groupId>lt.employees.services</groupId>
+	<groupId>lt.employees.service</groupId>
 	<artifactId>employees-services</artifactId>
 
 	<name>Employees Services</name>

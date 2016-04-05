@@ -12,8 +12,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import lt.employees.services.EmployeesService;
-import lt.employees.services.dto.EmployeeDTO;
+import lt.employees.service.EmployeesService;
+import lt.employees.service.dto.EmployeeDTO;
 
 @Path("/employees")
 public class EmployeesRestApi {
