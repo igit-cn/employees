@@ -12,6 +12,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import lt.employees.rest.app.converter.EmployeeResponseConverter;
+import lt.employees.rest.app.response.EmployeeResponse;
 import lt.employees.service.EmployeesService;
 import lt.employees.service.dto.EmployeeDTO;
 
@@ -23,7 +25,7 @@ public class EmployeesRestApi {
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
 	public Response fetchEmployees() {
-		final List<EmployeeDTO> employees = employeesService.fetchEmployees();
+		final List<EmployeeResponse> employees = EmployeeResponseConverter.convert(employeesService.fetchEmployees());
 
 		return Response.status(Response.Status.OK).entity(employees).build();
 	}
@@ -40,8 +42,8 @@ public class EmployeesRestApi {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response saveEmployee(EmployeeDTO employee) {
-		employeesService.saveEmployee(employee);
+	public Response saveEmployee(EmployeeResponse employee) {
+		employeesService.saveEmployee(EmployeeResponseConverter.convert(employee));
 		
 		return Response.status(Response.Status.OK).build();
 	}

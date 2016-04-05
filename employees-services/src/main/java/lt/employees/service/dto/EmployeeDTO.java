@@ -1,10 +1,5 @@
 package lt.employees.service.dto;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
-@XmlRootElement
-@XmlType(propOrder={"id", "firstName", "lastName", "address"})
 public class EmployeeDTO {
 
 	private Integer id;

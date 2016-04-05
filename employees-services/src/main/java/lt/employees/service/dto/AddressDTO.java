@@ -1,13 +1,8 @@
 package lt.employees.service.dto;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-
 /**
  * Data transfer object witch holds employee address info
  */
-@XmlRootElement
-@XmlType(propOrder={"id", "country", "city", "address"})
 public class AddressDTO {
 
     private Integer id;

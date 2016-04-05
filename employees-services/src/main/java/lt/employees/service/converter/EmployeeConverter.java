@@ -3,25 +3,20 @@ package lt.employees.service.converter;
 import java.util.ArrayList;
 import java.util.List;
 
-import lt.employees.domain.entity.Address;
 import lt.employees.domain.entity.Employee;
-import lt.employees.service.dto.AddressDTO;
 import lt.employees.service.dto.EmployeeDTO;
 
+/**
+ * Converter class for Employee.
+ */
 public class EmployeeConverter {
 	
 	public static EmployeeDTO convert(Employee employee) {
-        AddressDTO address = new AddressDTO();
-        address.setId(employee.getAddress().getId());
-        address.setCountry(employee.getAddress().getCountry());
-        address.setCity(employee.getAddress().getCity());
-        address.setAddress(employee.getAddress().getAddress());
-
 		EmployeeDTO result = new EmployeeDTO();
 		result.setId(employee.getId());
 		result.setFirstName(employee.getFirstName());
 		result.setLastName(employee.getLastName());
-        result.setAddress(address);
+        result.setAddress(AddressConverter.convert(employee.getAddress()));
 		
 		return result;
 	}
@@ -37,17 +32,11 @@ public class EmployeeConverter {
 	}
 	
 	public static Employee convert(EmployeeDTO employee) {
-        Address address = new Address();
-        address.setId(employee.getAddress().getId());
-        address.setCountry(employee.getAddress().getCountry());
-        address.setCity(employee.getAddress().getCity());
-        address.setAddress(employee.getAddress().getAddress());
-
 		Employee result = new Employee();
 		result.setId(employee.getId());
 		result.setFirstName(employee.getFirstName());
 		result.setLastName(employee.getLastName());
-        result.setAddress(address);
+        result.setAddress(AddressConverter.convert(employee.getAddress()));
 		
 		return result;
 	}
