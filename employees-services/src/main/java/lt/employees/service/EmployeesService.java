@@ -4,6 +4,9 @@ import java.util.List;
 
 import lt.employees.service.dto.EmployeeDTO;
 
+import org.springframework.transaction.annotation.Transactional;
+
+@Transactional
 public interface EmployeesService {
 	
 	List<EmployeeDTO> fetchEmployees();
