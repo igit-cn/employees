@@ -66,12 +66,12 @@
 				<version>3.4.2</version>
 				<configuration>
 					<changeLogFile>${changeLogFile}</changeLogFile>
-					<driver>${driver}</driver>
-					<url>${url}?createDatabaseIfNotExist=true</url>
-					<username>${username}</username>
-					<password>${password}</password>
-					<verbose>${verbose}</verbose>
-					<dropFirst>${dropFirst}</dropFirst>
+					<driver>${dbDriver}</driver>
+					<url>${dbUrl}?createDatabaseIfNotExist=true</url>
+					<username>${dbUsername}</username>
+					<password>${dbPassword}</password>
+					<verbose>${dbVerbose}</verbose>
+					<dropFirst>${dbPropFirst}</dropFirst>
 				</configuration>
 				<dependencies>
 					<dependency>
