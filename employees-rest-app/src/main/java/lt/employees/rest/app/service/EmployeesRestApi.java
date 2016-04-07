@@ -18,9 +18,9 @@ import lt.employees.service.EmployeesService;
 import lt.employees.service.dto.EmployeeDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component(value = "employeesRest")
+@Service(value = "employeesRest")
 @Path("/employees")
 public class EmployeesRestApi {
 
