@@ -16,4 +16,8 @@ angular.module('employeesApp.createEmployeeView', ['ngRoute'])
     	$location.path('/employeesView');
     });
   }
+
+  $scope.cancel = function() {
+    	$location.path('/employeesView');
+  }
 }]);
