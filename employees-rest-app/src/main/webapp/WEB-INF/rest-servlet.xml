@@ -13,7 +13,7 @@
 
 	<import resource="classpath:META-INF/cxf/cxf.xml"/>
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
-	<import resource="classpath*:META-INF/*-beans.xml"/>
+	<import resource="classpath*:META-INF/db-beans.xml"/>
 
 	<context:component-scan base-package="lt.employees" />
 
