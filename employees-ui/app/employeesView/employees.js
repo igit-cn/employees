@@ -16,6 +16,10 @@ angular.module('employeesApp.employeesView', ['ngRoute'])
 		$location.path('/editEmployeeView/' + employeeId);
 	}
 
+	$scope.newEmployee = function() {
+	    $location.path('/createEmployeeView');
+	}
+
 	$scope.deleteEmployee = function(employeeId) {
 		EmployeesFactory.delete({id: employeeId}, function() {
 			$scope.employees = EmployeesFactory.query();
