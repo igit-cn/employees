@@ -1,6 +1,7 @@
 package lt.employees.domain.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ public class Department extends AbstractEntity {
     private Employee director;
 
     @OneToMany(mappedBy = "department")
-    private List<Employee> employees;
+    private List<Employee> employees = new ArrayList<Employee>();
 
     public String getName() {
         return name;
