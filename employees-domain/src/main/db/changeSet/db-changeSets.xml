@@ -1,0 +1,58 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+            http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="001" author="Jurijus">
+        <createTable tableName="Department">
+            <column name="id" autoIncrement="true" type="int">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="description" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="director_id" type="int">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="002" author="Jurijus">
+        <preConditions onFail="CONTINUE">
+            <tableExists tableName="Employee" />
+        </preConditions>
+        <addForeignKeyConstraint baseTableName="Department"
+                                 baseColumnNames="director_id"
+                                 constraintName="fk_department_employee"
+                                 referencedTableName="Employee"
+                                 referencedColumnNames="id"
+                                 onDelete="RESTRICT"
+                                 onUpdate="CASCADE"
+        />
+    </changeSet>
+
+    <changeSet id="003" author="Jurijus">
+        <addColumn tableName="Employee">
+            <column name="department_id" type="int" />
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="004" author="Jurijus">
+        <preConditions onFail="CONTINUE">
+            <tableExists tableName="Department" />
+        </preConditions>
+        <addForeignKeyConstraint baseTableName="Employee"
+                                 baseColumnNames="department_id"
+                                 constraintName="fk_employee_department"
+                                 referencedTableName="Department"
+                                 referencedColumnNames="id"
+                                 onDelete="SET NULL"
+                                 onUpdate="NO ACTION"
+        />
+    </changeSet>
+
+</databaseChangeLog>

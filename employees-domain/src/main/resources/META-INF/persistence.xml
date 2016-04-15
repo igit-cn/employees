@@ -8,5 +8,6 @@
 
 		<class>lt.employees.domain.entity.Employee</class>
 		<class>lt.employees.domain.entity.Address</class>
+		<class>lt.employees.domain.entity.Department</class>
 	</persistence-unit>
 </persistence>

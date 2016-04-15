@@ -1,7 +1,5 @@
 package lt.employees.domain.entity;
 
-import java.io.Serializable;
-
 import javax.persistence.*;
 
 @Entity
@@ -14,8 +12,11 @@ public class Employee extends AbstractEntity {
     @Column(nullable = false)
 	private String lastName;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
 	private Address address;
+
+	@OneToOne
+	private Department department;
 
 	public String getFirstName() {
 		return firstName;
@@ -39,5 +40,13 @@ public class Employee extends AbstractEntity {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
 }

@@ -29,7 +29,10 @@ public class EmployeesServiceImpl implements EmployeesService {
 	}
 
 	public void saveEmployee(EmployeeDTO employee) {
-		employeesDAO.save(EmployeeConverter.convert(employee));
+		Employee employeeEntity = EmployeeConverter.convert(employee);
+		employeeEntity.getAddress().setEmployee(employeeEntity);
+
+		employeesDAO.save(employeeEntity);
 	}
 
 	public void deleteEmployee(Integer id) {

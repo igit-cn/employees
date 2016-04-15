@@ -1,8 +1,8 @@
 <databaseChangeLog
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+        xsi:schemaLocation="
+            http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <changeSet id="001" author="Jurijus">
         <createTable tableName="Employee">
@@ -13,9 +13,6 @@
                 <constraints nullable="false" />
             </column>
             <column name="lastName" type="varchar(50)">
-                <constraints nullable="false" />
-            </column>
-            <column name="address_id" type="int">
                 <constraints nullable="false" />
             </column>
         </createTable>
@@ -29,16 +26,19 @@
             <column name="country" type="varchar(255)" />
             <column name="city" type="varchar(255)" />
             <column name="address" type="varchar(255)" />
+            <column name="employee_id" type="int">
+                <constraints nullable="false" />
+            </column>
         </createTable>
     </changeSet>
     
     <changeSet id="003" author="Jurijus">
-        <addForeignKeyConstraint baseTableName="Employee"
-                                 baseColumnNames="address_id"
-                                 constraintName="fk_employee_address"
-                                 referencedTableName="Address"
+        <addForeignKeyConstraint baseTableName="Address"
+                                 baseColumnNames="employee_id"
+                                 constraintName="fk_address_employee"
+                                 referencedTableName="Employee"
                                  referencedColumnNames="id"
-                                 onDelete="RESTRICT"
+                                 onDelete="CASCADE"
                                  onUpdate="CASCADE"
         />
     </changeSet>
