@@ -14,6 +14,7 @@ public class DepartmentConverter {
 
     public static DepartmentDTO convert(Department department) {
         DepartmentDTO result = new DepartmentDTO();
+        result.setId(department.getId());
         result.setName(department.getName());
         result.setDescription(department.getDescription());
         result.setDirector(EmployeeConverter.convert(department.getDirector()));
@@ -34,6 +35,7 @@ public class DepartmentConverter {
 
     public static Department convert(DepartmentDTO department) {
         Department result = new Department();
+        result.setId(department.getId());
         result.setName(department.getName());
         result.setDescription(department.getDescription());
         result.setDirector(EmployeeConverter.convert(department.getDirector()));

@@ -8,6 +8,8 @@ import java.util.List;
  */
 public class DepartmentDTO {
 
+    private Long id;
+
     private String name;
 
     private String description;
@@ -42,5 +44,13 @@ public class DepartmentDTO {
 
     public List<EmployeeDTO> getEmployees() {
         return employees;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

@@ -11,7 +11,7 @@ import lt.employees.service.dto.EmployeeDTO;
  */
 public class EmployeeResponseConverter {
 
-	public static List<EmployeeResponse> convert(List<EmployeeDTO> employees) {
+	public static List<EmployeeResponse> convertToResponse(List<EmployeeDTO> employees) {
 		List<EmployeeResponse> result = new ArrayList<EmployeeResponse>();
 
 		for (EmployeeDTO employee : employees) {
@@ -37,6 +37,15 @@ public class EmployeeResponseConverter {
 		result.setFirstName(employeeResponse.getFirstName());
 		result.setLastName(employeeResponse.getLastName());
 		result.setAddress(AddressResponseConverter.convert(employeeResponse.getAddress()));
+
+		return result;
+	}
+
+	public static List<EmployeeDTO> convertToDTO(List<EmployeeResponse> employees) {
+		List<EmployeeDTO> result = new ArrayList<EmployeeDTO>();
+		for (EmployeeResponse employee : employees) {
+			result.add(convert(employee));
+		}
 
 		return result;
 	}
