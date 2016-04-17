@@ -4,7 +4,7 @@ angular.module('employeesApp.editEmployeeView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/editEmployeeView/:id', {
-    templateUrl: 'editEmployeeView/editEmployee.html',
+    templateUrl: 'employees/editEmployeeView/editEmployee.html',
     controller: 'editEmployeeViewCtrl'
   });
 }])

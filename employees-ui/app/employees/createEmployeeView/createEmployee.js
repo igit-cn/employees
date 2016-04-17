@@ -4,7 +4,7 @@ angular.module('employeesApp.createEmployeeView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/createEmployeeView', {
-    templateUrl: 'createEmployeeView/createEmployee.html',
+    templateUrl: 'employees/createEmployeeView/createEmployee.html',
     controller: 'createEmployeeViewCtrl'
   });
 }])
