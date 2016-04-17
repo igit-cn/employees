@@ -16,7 +16,7 @@
                 <constraints nullable="true" />
             </column>
             <column name="director_id" type="int">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
         </createTable>
     </changeSet>

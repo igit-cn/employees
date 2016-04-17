@@ -17,7 +17,9 @@ public class DepartmentConverter {
         result.setId(department.getId());
         result.setName(department.getName());
         result.setDescription(department.getDescription());
-        result.setDirector(EmployeeConverter.convert(department.getDirector()));
+        if (department.getDirector() != null) {
+            result.setDirector(EmployeeConverter.convert(department.getDirector()));
+        }
         result.getEmployees().addAll(EmployeeConverter.convert(department.getEmployees()));
 
         return result;
@@ -38,7 +40,9 @@ public class DepartmentConverter {
         result.setId(department.getId());
         result.setName(department.getName());
         result.setDescription(department.getDescription());
-        result.setDirector(EmployeeConverter.convert(department.getDirector()));
+        if (department.getDirector() != null) {
+            result.setDirector(EmployeeConverter.convert(department.getDirector()));
+        }
         for (EmployeeDTO employee : department.getEmployees()) {
             result.getEmployees().add(EmployeeConverter.convert(employee));
         }
