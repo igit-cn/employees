@@ -41,6 +41,7 @@
 	<jaxrs:server id="employeesrs" address="/api">
 		<jaxrs:serviceBeans>
 			<ref bean="employeesRest"/>
+			<ref bean="departmentsRest"/>
 		</jaxrs:serviceBeans>
 		<jaxrs:providers>
 			<bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
