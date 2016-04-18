@@ -12,13 +12,10 @@ angular.module('employeesApp.employeesView', ['ngRoute'])
 .controller('employeesViewCtrl', ['$scope', 'EmployeesFactory', '$location', function($scope, EmployeesFactory, $location) {
 	$scope.employees = EmployeesFactory.query();
 
-	$scope.editEmployee = function(employeeId) {
-		$location.path('/editEmployeeView/' + employeeId);
-	}
-
-	$scope.newEmployee = function() {
-	    $location.path('/createEmployeeView');
-	}
+    $scope.editOrCreate = function(employeeId) {
+        var path = '/employeeView/'.concat(employeeId ? employeeId : '');
+        $location.path(path);
+    }
 
 	$scope.deleteEmployee = function(employeeId) {
 		EmployeesFactory.delete({id: employeeId}, function() {

@@ -15,7 +15,7 @@
             <td>{{department.description}}</td>
 
             <td>
-                <a class="btn" ng-click="editDepartment(department.id)">
+                <a class="btn" ng-click="editOrCreate(department.id)">
                     <span class="glyphicon glyphicon-pencil">&nbsp;Edit</span>
                 </a>
             </td>
@@ -30,7 +30,7 @@
     </table>
 
     <div>
-        <button class="btn" ng-click="newDepartment()">
+        <button class="btn" ng-click="editOrCreate()">
             <span class="glyphicon glyphicon-plus">&nbsp;Create New Department</span>
         </button>
     </div>

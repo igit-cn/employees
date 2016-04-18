@@ -14,7 +14,7 @@
                 <td>{{employee.lastName}}</td>
 
                 <td>
-                    <a class="btn" ng-click="editEmployee(employee.id)">
+                    <a class="btn" ng-click="editOrCreate(employee.id)">
                         <span class="glyphicon glyphicon-pencil">&nbsp;Edit</span>
                     </a>
                 </td>
@@ -29,7 +29,7 @@
     </table>
 
     <div>
-        <button class="btn" ng-click="newEmployee()">
+        <button class="btn" ng-click="editOrCreate()">
             <span class="glyphicon glyphicon-plus">&nbsp;Create New Employee</span>
         </button>
     </div>

@@ -13,17 +13,14 @@ angular.module('employeesApp.departmentsView', ['ngRoute'])
         function($scope, DepartmentsFactory, $location) {
     $scope.departments = DepartmentsFactory.query();
 
-    $scope.newDepartment = function() {
-        $location.path('/createDepartmentView');
-    }
-
-    $scope.editDepartment = function(departmentId) {
-    	$location.path('/editDepartmentView/' + departmentId);
+    $scope.editOrCreate = function(departmentId) {
+        var path = '/departmentView/'.concat(departmentId ? departmentId : '');
+        $location.path(path);
     }
 
     $scope.deleteDepartment = function(departmentId) {
-    		DepartmentsFactory.delete({id: departmentId}, function() {
-    			$scope.departments = DepartmentsFactory.query();
-    		});
-    	}
+        DepartmentsFactory.delete({id: departmentId}, function() {
+    	    $scope.departments = DepartmentsFactory.query();
+    	});
+    }
 }]);

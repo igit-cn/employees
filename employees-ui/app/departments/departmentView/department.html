@@ -1,4 +1,5 @@
 <div class="container">
+    <h3>Create New Department:</h3>
     <h3>Edit Department:</h3>
 
     <form class="form-horizontal" name="departmentForm" novalidate>
@@ -19,7 +20,7 @@
         </div>
 
         <hr>
-        <button class="btn btn-success" ng-click="editDepartment()" ng-disabled="departmentForm.$invalid">
+        <button class="btn btn-success" ng-click="saveDepartment()" ng-disabled="departmentForm.$invalid">
             <span class="glyphicon glyphicon-save">&nbsp;Save</span>
         </button>
 
@@ -27,4 +28,5 @@
             <span>&nbsp;Cancel</span>
         </button>
     </form>
+
 </div>
