@@ -31,7 +31,7 @@ public class EmployeesRestApi {
 	@GET
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response fetchEmployeeById(@PathParam("id") int id) {
+	public Response fetchEmployeeById(@PathParam("id") Long id) {
 		EmployeeDTO employee = employeesService.getEmployeeById(id);
 		
 		return Response.status(Response.Status.OK).entity(employee).build();
@@ -49,7 +49,7 @@ public class EmployeesRestApi {
 	@DELETE
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response deleteEmployee(@PathParam("id") int id) {
+	public Response deleteEmployee(@PathParam("id") Long id) {
 		employeesService.deleteEmployee(id);
 		
 		return Response.status(Response.Status.OK).build();

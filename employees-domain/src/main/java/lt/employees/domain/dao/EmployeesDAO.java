@@ -10,8 +10,8 @@ public interface EmployeesDAO {
 	
 	void save(Employee employee);
 	
-	Employee getEmployeeById(Integer id);
+	Employee getEmployeeById(Long id);
 	
-	void deleteEmployee(Integer id);
+	void deleteEmployee(Long id);
 
 }

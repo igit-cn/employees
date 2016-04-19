@@ -13,8 +13,8 @@ public interface DepartmentsDAO {
 
     void save(Department department);
 
-    Department getDepartmentById(Integer id);
+    Department getDepartmentById(Long id);
 
-    void deleteDepartment(Integer id);
+    void deleteDepartment(Long id);
 
 }

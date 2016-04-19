@@ -33,7 +33,7 @@ public class DepartmentsRestApi {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response fetchDepartmentById(@PathParam("id") int id) {
+    public Response fetchDepartmentById(@PathParam("id") Long id) {
         DepartmentDTO department = departmentsService.getDepartmentById(id);
 
         return Response.status(Response.Status.OK).entity(department).build();
@@ -51,7 +51,7 @@ public class DepartmentsRestApi {
     @DELETE
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response deleteDepartment(@PathParam("id") int id) {
+    public Response deleteDepartment(@PathParam("id") Long id) {
         departmentsService.deleteDepartment(id);
 
         return Response.status(Response.Status.OK).build();

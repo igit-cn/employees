@@ -1,13 +1,16 @@
 package lt.employees.rest.app.response;
 
-import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * Response object for departments.
  */
 @XmlRootElement
+@XmlType(propOrder={"id", "name", "description", "director", "employees"})
 public class DepartmentResponse {
 
     private Long id;
@@ -16,9 +19,9 @@ public class DepartmentResponse {
 
     private String description;
 
-    private EmployeeResponse director;
+    private NameInfoResponse director;
 
-    private List<EmployeeResponse> employees = new ArrayList<EmployeeResponse>();
+    private List<NameInfoResponse> employees = new ArrayList<NameInfoResponse>();
 
     public Long getId() {
         return id;
@@ -44,15 +47,15 @@ public class DepartmentResponse {
         this.description = description;
     }
 
-    public EmployeeResponse getDirector() {
+    public NameInfoResponse getDirector() {
         return director;
     }
 
-    public void setDirector(EmployeeResponse director) {
+    public void setDirector(NameInfoResponse director) {
         this.director = director;
     }
 
-    public List<EmployeeResponse> getEmployees() {
+    public List<NameInfoResponse> getEmployees() {
         return employees;
     }
 }

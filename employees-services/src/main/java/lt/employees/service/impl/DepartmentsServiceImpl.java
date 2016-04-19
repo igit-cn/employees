@@ -1,14 +1,17 @@
 package lt.employees.service.impl;
 
+import java.util.List;
+
 import lt.employees.domain.dao.DepartmentsDAO;
+import lt.employees.domain.dao.EmployeesDAO;
 import lt.employees.domain.entity.Department;
+import lt.employees.domain.entity.Employee;
 import lt.employees.service.DepartmentsService;
 import lt.employees.service.converter.DepartmentConverter;
 import lt.employees.service.dto.DepartmentDTO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * Service implementation for {@link DepartmentsService}.
@@ -19,12 +22,15 @@ public class DepartmentsServiceImpl implements DepartmentsService {
     @Autowired
     private DepartmentsDAO departmentsDAO;
 
+    @Autowired
+    private EmployeesDAO employeesDAO;
+
     public List<DepartmentDTO> fetchDepartments() {
         List<Department> departments = departmentsDAO.fetchDepartments();
         return DepartmentConverter.convert(departments);
     }
 
-    public DepartmentDTO getDepartmentById(Integer id) {
+    public DepartmentDTO getDepartmentById(Long id) {
         Department department = departmentsDAO.getDepartmentById(id);
 
         return DepartmentConverter.convert(department);
@@ -33,10 +39,15 @@ public class DepartmentsServiceImpl implements DepartmentsService {
     public void saveDepartment(DepartmentDTO department) {
         Department departmentEntity = DepartmentConverter.convert(department);
 
+        if (department.getDirector() != null) {
+            final Employee director = employeesDAO.getEmployeeById(department.getDirector().getId());
+            departmentEntity.setDirector(director);
+        }
+
         departmentsDAO.save(departmentEntity);
     }
 
-    public void deleteDepartment(Integer id) {
+    public void deleteDepartment(Long id) {
         departmentsDAO.deleteDepartment(id);
     }
 }

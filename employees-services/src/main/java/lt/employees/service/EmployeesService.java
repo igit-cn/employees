@@ -11,10 +11,10 @@ public interface EmployeesService {
 	
 	List<EmployeeDTO> fetchEmployees();
 	
-	EmployeeDTO getEmployeeById(Integer id);
+	EmployeeDTO getEmployeeById(Long id);
 	
 	void saveEmployee(EmployeeDTO employee);
 	
-	void deleteEmployee(Integer id);
+	void deleteEmployee(Long id);
 
 }

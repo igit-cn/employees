@@ -23,7 +23,7 @@ public class EmployeesServiceImpl implements EmployeesService {
 		return EmployeeConverter.convert(employees);
 	}
 
-	public EmployeeDTO getEmployeeById(Integer id) {
+	public EmployeeDTO getEmployeeById(Long id) {
 		Employee employee = employeesDAO.getEmployeeById(id);
 		return employee == null ? null : EmployeeConverter.convert(employee);
 	}
@@ -35,7 +35,7 @@ public class EmployeesServiceImpl implements EmployeesService {
 		employeesDAO.save(employeeEntity);
 	}
 
-	public void deleteEmployee(Integer id) {
+	public void deleteEmployee(Long id) {
 		employeesDAO.deleteEmployee(id);
 	}
 

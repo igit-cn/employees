@@ -1,11 +1,11 @@
 package lt.employees.service.converter;
 
-import lt.employees.domain.entity.Department;
-import lt.employees.service.dto.DepartmentDTO;
-import lt.employees.service.dto.EmployeeDTO;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import lt.employees.domain.entity.Department;
+import lt.employees.domain.entity.Employee;
+import lt.employees.service.dto.DepartmentDTO;
 
 /**
  * Converter class for Department.
@@ -18,9 +18,9 @@ public class DepartmentConverter {
         result.setName(department.getName());
         result.setDescription(department.getDescription());
         if (department.getDirector() != null) {
-            result.setDirector(EmployeeConverter.convert(department.getDirector()));
+            result.setDirector(EmployeeConverter.convertToNameInfo(department.getDirector()));
         }
-        result.getEmployees().addAll(EmployeeConverter.convert(department.getEmployees()));
+        result.getEmployees().addAll(EmployeeConverter.convertToNameInfo(department.getEmployees()));
 
         return result;
     }
@@ -40,13 +40,6 @@ public class DepartmentConverter {
         result.setId(department.getId());
         result.setName(department.getName());
         result.setDescription(department.getDescription());
-        if (department.getDirector() != null) {
-            result.setDirector(EmployeeConverter.convert(department.getDirector()));
-        }
-        for (EmployeeDTO employee : department.getEmployees()) {
-            result.getEmployees().add(EmployeeConverter.convert(employee));
-        }
-
 
         return result;
     }

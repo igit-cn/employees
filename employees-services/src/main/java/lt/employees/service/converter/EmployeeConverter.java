@@ -5,6 +5,7 @@ import java.util.List;
 
 import lt.employees.domain.entity.Employee;
 import lt.employees.service.dto.EmployeeDTO;
+import lt.employees.service.dto.NameInfoDTO;
 
 /**
  * Converter class for Employee.
@@ -38,6 +39,24 @@ public class EmployeeConverter {
 		result.setLastName(employee.getLastName());
         result.setAddress(AddressConverter.convert(employee.getAddress()));
 		
+		return result;
+	}
+
+	public static NameInfoDTO convertToNameInfo(Employee employee) {
+		NameInfoDTO result = new NameInfoDTO();
+		result.setId(employee.getId());
+		result.setFirstName(employee.getFirstName());
+		result.setLastName(employee.getLastName());
+
+		return result;
+	}
+
+	public static List<NameInfoDTO> convertToNameInfo(List<Employee> employees) {
+		List<NameInfoDTO> result = new ArrayList<NameInfoDTO>();
+		for (Employee employee : employees) {
+			result.add(convertToNameInfo(employee));
+		}
+
 		return result;
 	}
 

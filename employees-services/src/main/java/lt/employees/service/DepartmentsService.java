@@ -13,10 +13,10 @@ public interface DepartmentsService {
 
     List<DepartmentDTO> fetchDepartments();
 
-    DepartmentDTO getDepartmentById(Integer id);
+    DepartmentDTO getDepartmentById(Long id);
 
     void saveDepartment(DepartmentDTO department);
 
-    void deleteDepartment(Integer id);
+    void deleteDepartment(Long id);
 
 }

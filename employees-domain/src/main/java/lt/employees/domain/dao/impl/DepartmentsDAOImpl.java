@@ -1,10 +1,11 @@
 package lt.employees.domain.dao.impl;
 
+import java.util.List;
+
 import lt.employees.domain.dao.DepartmentsDAO;
 import lt.employees.domain.entity.Department;
-import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import org.springframework.stereotype.Repository;
 
 /**
  * DAO class for {@link Department} entity.
@@ -24,11 +25,11 @@ public class DepartmentsDAOImpl extends AbstractJpaDAO<Department> implements De
         saveOrUpdate(department);
     }
 
-    public Department getDepartmentById(Integer id) {
+    public Department getDepartmentById(Long id) {
         return findById(id);
     }
 
-    public void deleteDepartment(Integer id) {
+    public void deleteDepartment(Long id) {
         deleteById(id);
     }
 }

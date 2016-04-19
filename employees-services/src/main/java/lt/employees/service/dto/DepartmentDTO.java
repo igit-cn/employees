@@ -14,9 +14,9 @@ public class DepartmentDTO {
 
     private String description;
 
-    private EmployeeDTO director;
+    private NameInfoDTO director;
 
-    private List<EmployeeDTO> employees = new ArrayList<EmployeeDTO>();
+    private List<NameInfoDTO> employees = new ArrayList<NameInfoDTO>();
 
     public String getName() {
         return name;
@@ -34,15 +34,15 @@ public class DepartmentDTO {
         this.description = description;
     }
 
-    public EmployeeDTO getDirector() {
+    public NameInfoDTO getDirector() {
         return director;
     }
 
-    public void setDirector(EmployeeDTO director) {
+    public void setDirector(NameInfoDTO director) {
         this.director = director;
     }
 
-    public List<EmployeeDTO> getEmployees() {
+    public List<NameInfoDTO> getEmployees() {
         return employees;
     }
 

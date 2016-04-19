@@ -22,11 +22,11 @@ public class EmployeesDAOImpl extends AbstractJpaDAO<Employee> implements Employ
 		saveOrUpdate(employee);
 	}
 
-	public Employee getEmployeeById(final Integer id) {
+	public Employee getEmployeeById(final Long id) {
 		return findById(id);
 	}
 
-	public void deleteEmployee(final Integer id) {
+	public void deleteEmployee(final Long id) {
 		deleteById(id);
 	}
 

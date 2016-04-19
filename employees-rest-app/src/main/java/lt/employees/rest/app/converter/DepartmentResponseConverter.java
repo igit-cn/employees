@@ -1,10 +1,10 @@
 package lt.employees.rest.app.converter;
 
-import lt.employees.rest.app.response.DepartmentResponse;
-import lt.employees.service.dto.DepartmentDTO;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import lt.employees.rest.app.response.DepartmentResponse;
+import lt.employees.service.dto.DepartmentDTO;
 
 /**
  * Converter class for department response.
@@ -17,9 +17,9 @@ public class DepartmentResponseConverter {
         result.setName(department.getName());
         result.setDescription(department.getDescription());
         if (department.getDirector() != null) {
-            result.setDirector(EmployeeResponseConverter.convert(department.getDirector()));
+            result.setDirector(NameInfoConverter.convert(department.getDirector()));
         }
-        result.getEmployees().addAll(EmployeeResponseConverter.convertToResponse(department.getEmployees()));
+        result.getEmployees().addAll(NameInfoConverter.convertToResponse(department.getEmployees()));
 
         return result;
     }
@@ -39,9 +39,9 @@ public class DepartmentResponseConverter {
         result.setName(department.getName());
         result.setDescription(department.getDescription());
         if (department.getDirector() != null) {
-            result.setDirector(EmployeeResponseConverter.convert(department.getDirector()));
+            result.setDirector(NameInfoConverter.convert(department.getDirector()));
         }
-        result.getEmployees().addAll(EmployeeResponseConverter.convertToDTO(department.getEmployees()));
+        result.getEmployees().addAll(NameInfoConverter.convertToDTO(department.getEmployees()));
 
         return result;
     }
