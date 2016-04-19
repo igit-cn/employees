@@ -7,6 +7,7 @@ import lt.employees.domain.entity.Employee;
 import lt.employees.service.EmployeesService;
 import lt.employees.service.converter.EmployeeConverter;
 import lt.employees.service.dto.EmployeeDTO;
+import lt.employees.service.dto.NameInfoDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,6 +38,10 @@ public class EmployeesServiceImpl implements EmployeesService {
 
 	public void deleteEmployee(Long id) {
 		employeesDAO.deleteEmployee(id);
+	}
+
+	public List<NameInfoDTO> fetchEmployeesNameInfo() {
+		return EmployeeConverter.convertToNameInfo(employeesDAO.fetchEmployees());
 	}
 
 }
