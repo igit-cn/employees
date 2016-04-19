@@ -17,14 +17,13 @@ angular.module('employeesApp.departmentView', ['ngRoute'])
 
 .controller('departmentViewCtrl', ['$scope', 'DepartmentsFactory', 'EmployeesFactory','$location', '$routeParams',
 	function($scope, DepartmentsFactory, EmployeesFactory, $location, $routeParams) {
-  $scope.employees = EmployeesFactory.query();
+  $scope.employees = EmployeesFactory.queryNameInfo();
 
   if ($routeParams.id != undefined) {
     $scope.department = DepartmentsFactory.get({id: $routeParams.id})
   }
 
   $scope.saveDepartment = function() {
-    console.log($scope.department);
   	DepartmentsFactory.save($scope.department, function() {
     	$location.path('/departmentsView');
     });
