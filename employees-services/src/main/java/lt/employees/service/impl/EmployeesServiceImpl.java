@@ -7,7 +7,6 @@ import lt.employees.domain.entity.Employee;
 import lt.employees.service.EmployeesService;
 import lt.employees.service.converter.EmployeeConverter;
 import lt.employees.service.dto.EmployeeDTO;
-import lt.employees.service.dto.NameInfoDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,7 +40,7 @@ public class EmployeesServiceImpl implements EmployeesService {
 	}
 
 	public List<EmployeeDTO> fetchEmployeesNameInfo() {
-		return EmployeeConverter.convert(employeesDAO.fetchNameInfos());
+		return EmployeeConverter.convert(employeesDAO.fetchNamesInfo());
 	}
 
 }

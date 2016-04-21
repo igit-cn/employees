@@ -38,7 +38,7 @@ public class DepartmentsDAOImpl extends AbstractJpaDAO<Department> implements De
         deleteById(id);
     }
 
-    public List<Department> fetchNameInfos() {
+    public List<Department> fetchNamesInfo() {
         final Query query = getEntityManager().createQuery(SELECT_DEPARTMENTS_NAME_INFO);
 
         return query.getResultList();

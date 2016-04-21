@@ -35,7 +35,7 @@ public class EmployeesDAOImpl extends AbstractJpaDAO<Employee> implements Employ
 		deleteById(id);
 	}
 
-	public List<Employee> fetchNameInfos() {
+	public List<Employee> fetchNamesInfo() {
 		final Query query = getEntityManager().createQuery(SELECT_EMPLOYEES_NAME_INFO);
 
 		return query.getResultList();
