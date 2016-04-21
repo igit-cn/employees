@@ -14,4 +14,6 @@ public interface EmployeesDAO {
 	
 	void deleteEmployee(Long id);
 
+	List<Employee> fetchNameInfos();
+
 }

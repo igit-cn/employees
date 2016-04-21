@@ -41,7 +41,7 @@ public class EmployeesServiceImpl implements EmployeesService {
 	}
 
 	public List<NameInfoDTO> fetchEmployeesNameInfo() {
-		return EmployeeConverter.convertToNameInfo(employeesDAO.fetchEmployees());
+		return EmployeeConverter.convertToNameInfo(employeesDAO.fetchNameInfos());
 	}
 
 }

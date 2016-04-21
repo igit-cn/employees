@@ -18,6 +18,15 @@ public class Employee extends AbstractEntity {
 	@OneToOne
 	private Department department;
 
+	public Employee() {
+	}
+
+	public Employee(final Long id, final String firstName, final String lastName) {
+		setId(id);
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}

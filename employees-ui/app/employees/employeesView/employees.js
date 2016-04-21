@@ -10,7 +10,7 @@ angular.module('employeesApp.employeesView', ['ngRoute'])
 }])
 
 .controller('employeesViewCtrl', ['$scope', 'EmployeesFactory', '$location', function($scope, EmployeesFactory, $location) {
-	$scope.employees = EmployeesFactory.query();
+	$scope.employees = EmployeesFactory.queryNameInfo();
 
     $scope.editOrCreate = function(employeeId) {
         var path = '/employeeView/'.concat(employeeId ? employeeId : '');
