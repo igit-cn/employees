@@ -26,7 +26,9 @@ public class EmployeeResponseConverter {
 		result.setId(employee.getId());
 		result.setFirstName(employee.getFirstName());
 		result.setLastName(employee.getLastName());
-		result.setAddress(AddressResponseConverter.convert(employee.getAddress()));
+		if (employee.getAddress() != null) {
+			result.setAddress(AddressResponseConverter.convert(employee.getAddress()));
+		}
 
 		return result;
 	}
@@ -36,7 +38,9 @@ public class EmployeeResponseConverter {
 		result.setId(employeeResponse.getId());
 		result.setFirstName(employeeResponse.getFirstName());
 		result.setLastName(employeeResponse.getLastName());
-		result.setAddress(AddressResponseConverter.convert(employeeResponse.getAddress()));
+		if (employeeResponse.getAddress() != null) {
+			result.setAddress(AddressResponseConverter.convert(employeeResponse.getAddress()));
+		}
 
 		return result;
 	}

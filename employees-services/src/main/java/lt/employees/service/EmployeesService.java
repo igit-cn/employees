@@ -18,6 +18,6 @@ public interface EmployeesService {
 	
 	void deleteEmployee(Long id);
 
-	List<NameInfoDTO> fetchEmployeesNameInfo();
+	List<EmployeeDTO> fetchEmployeesNameInfo();
 
 }

@@ -13,9 +13,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import lt.employees.rest.app.converter.EmployeeResponseConverter;
-import lt.employees.rest.app.converter.NameInfoConverter;
 import lt.employees.rest.app.response.EmployeeResponse;
-import lt.employees.rest.app.response.NameInfoResponse;
 import lt.employees.service.EmployeesService;
 import lt.employees.service.dto.EmployeeDTO;
 
@@ -69,7 +67,7 @@ public class EmployeesRestApi {
 	@Path(("nameInfo"))
 	@Produces({MediaType.APPLICATION_JSON})
 	public Response fetchEmployeesNameInfo() {
-		final List<NameInfoResponse> EmployeesNameInfoResponses = NameInfoConverter.convertToResponse(employeesService.fetchEmployeesNameInfo());
+		final List<EmployeeResponse> EmployeesNameInfoResponses = EmployeeResponseConverter.convertToResponse(employeesService.fetchEmployeesNameInfo());
 
 		return Response.status(Response.Status.OK).entity(EmployeesNameInfoResponses).build();
 	}

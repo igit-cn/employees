@@ -32,6 +32,9 @@ public class DepartmentsServiceImpl implements DepartmentsService {
 
     public DepartmentDTO getDepartmentById(Long id) {
         Department department = departmentsDAO.getDepartmentById(id);
+        Employee employee = new Employee(department.getDirector().getId(), department.getDirector().getFirstName(), department.getDirector()
+                .getLastName());
+        department.setDirector(employee);
 
         return DepartmentConverter.convert(department);
     }

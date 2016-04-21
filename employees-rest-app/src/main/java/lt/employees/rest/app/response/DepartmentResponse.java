@@ -19,9 +19,9 @@ public class DepartmentResponse {
 
     private String description;
 
-    private NameInfoResponse director;
+    private EmployeeResponse director;
 
-    private List<NameInfoResponse> employees = new ArrayList<NameInfoResponse>();
+    private List<EmployeeResponse> employees = new ArrayList<EmployeeResponse>();
 
     public Long getId() {
         return id;
@@ -47,15 +47,15 @@ public class DepartmentResponse {
         this.description = description;
     }
 
-    public NameInfoResponse getDirector() {
+    public EmployeeResponse getDirector() {
         return director;
     }
 
-    public void setDirector(NameInfoResponse director) {
+    public void setDirector(EmployeeResponse director) {
         this.director = director;
     }
 
-    public List<NameInfoResponse> getEmployees() {
+    public List<EmployeeResponse> getEmployees() {
         return employees;
     }
 }

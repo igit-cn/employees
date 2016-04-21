@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lt.employees.domain.entity.Department;
-import lt.employees.domain.entity.Employee;
 import lt.employees.service.dto.DepartmentDTO;
 
 /**
@@ -18,9 +17,9 @@ public class DepartmentConverter {
         result.setName(department.getName());
         result.setDescription(department.getDescription());
         if (department.getDirector() != null) {
-            result.setDirector(EmployeeConverter.convertToNameInfo(department.getDirector()));
+            result.setDirector(EmployeeConverter.convert(department.getDirector()));
         }
-        result.getEmployees().addAll(EmployeeConverter.convertToNameInfo(department.getEmployees()));
+        result.getEmployees().addAll(EmployeeConverter.convert(department.getEmployees()));
 
         return result;
     }

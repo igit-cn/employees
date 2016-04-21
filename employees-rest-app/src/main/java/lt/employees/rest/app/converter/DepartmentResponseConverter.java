@@ -17,9 +17,9 @@ public class DepartmentResponseConverter {
         result.setName(department.getName());
         result.setDescription(department.getDescription());
         if (department.getDirector() != null) {
-            result.setDirector(NameInfoConverter.convert(department.getDirector()));
+            result.setDirector(EmployeeResponseConverter.convert(department.getDirector()));
         }
-        result.getEmployees().addAll(NameInfoConverter.convertToResponse(department.getEmployees()));
+        result.getEmployees().addAll(EmployeeResponseConverter.convertToResponse(department.getEmployees()));
 
         return result;
     }
@@ -39,9 +39,9 @@ public class DepartmentResponseConverter {
         result.setName(department.getName());
         result.setDescription(department.getDescription());
         if (department.getDirector() != null) {
-            result.setDirector(NameInfoConverter.convert(department.getDirector()));
+            result.setDirector(EmployeeResponseConverter.convert(department.getDirector()));
         }
-        result.getEmployees().addAll(NameInfoConverter.convertToDTO(department.getEmployees()));
+        result.getEmployees().addAll(EmployeeResponseConverter.convertToDTO(department.getEmployees()));
 
         return result;
     }

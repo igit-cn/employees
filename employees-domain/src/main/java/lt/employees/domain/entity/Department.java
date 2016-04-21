@@ -15,7 +15,7 @@ public class Department extends AbstractEntity {
 
     private String description;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private Employee director;
 
     @OneToMany(mappedBy = "department")

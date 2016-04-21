@@ -40,8 +40,8 @@ public class EmployeesServiceImpl implements EmployeesService {
 		employeesDAO.deleteEmployee(id);
 	}
 
-	public List<NameInfoDTO> fetchEmployeesNameInfo() {
-		return EmployeeConverter.convertToNameInfo(employeesDAO.fetchNameInfos());
+	public List<EmployeeDTO> fetchEmployeesNameInfo() {
+		return EmployeeConverter.convert(employeesDAO.fetchNameInfos());
 	}
 
 }
