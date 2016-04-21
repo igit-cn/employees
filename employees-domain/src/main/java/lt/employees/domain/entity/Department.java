@@ -1,8 +1,12 @@
 package lt.employees.domain.entity;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  * Department entity class.
@@ -15,7 +19,7 @@ public class Department extends AbstractEntity {
 
     private String description;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     private Employee director;
 
     @OneToMany(mappedBy = "department")
