@@ -50,4 +50,9 @@ public class DepartmentsServiceImpl implements DepartmentsService {
     public void deleteDepartment(Long id) {
         departmentsDAO.deleteDepartment(id);
     }
+
+    public List<DepartmentDTO> fetchNameInfos() {
+        final List<Department> departments = departmentsDAO.fetchNameInfos();
+        return DepartmentConverter.convert(departments);
+    }
 }

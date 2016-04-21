@@ -11,7 +11,7 @@ angular.module('employeesApp.departmentsView', ['ngRoute'])
 
 .controller('departmentsViewCtrl', ['$scope', 'DepartmentsFactory', '$location',
         function($scope, DepartmentsFactory, $location) {
-    $scope.departments = DepartmentsFactory.query();
+    $scope.departments = DepartmentsFactory.queryNameInfo();
 
     $scope.editOrCreate = function(departmentId) {
         var path = '/departmentView/'.concat(departmentId ? departmentId : '');

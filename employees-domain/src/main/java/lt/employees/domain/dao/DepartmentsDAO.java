@@ -17,4 +17,6 @@ public interface DepartmentsDAO {
 
     void deleteDepartment(Long id);
 
+    List<Department> fetchNameInfos();
+
 }

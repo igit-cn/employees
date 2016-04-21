@@ -19,4 +19,6 @@ public interface DepartmentsService {
 
     void deleteDepartment(Long id);
 
+    List<DepartmentDTO> fetchNameInfos();
+
 }

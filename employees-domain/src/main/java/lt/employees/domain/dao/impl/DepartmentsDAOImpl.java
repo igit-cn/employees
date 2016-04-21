@@ -2,6 +2,8 @@ package lt.employees.domain.dao.impl;
 
 import java.util.List;
 
+import javax.persistence.Query;
+
 import lt.employees.domain.dao.DepartmentsDAO;
 import lt.employees.domain.entity.Department;
 
@@ -12,6 +14,9 @@ import org.springframework.stereotype.Repository;
  */
 @Repository(value = "departmentsDAO")
 public class DepartmentsDAOImpl extends AbstractJpaDAO<Department> implements DepartmentsDAO {
+
+    private static String SELECT_DEPARTMENTS_NAME_INFO = "SELECT new lt.employees.domain.entity.Department(d.id, d.name, d.description)"
+            + " from Department d";
 
     public DepartmentsDAOImpl() {
         setClazz(Department.class);
@@ -31,5 +36,11 @@ public class DepartmentsDAOImpl extends AbstractJpaDAO<Department> implements De
 
     public void deleteDepartment(Long id) {
         deleteById(id);
+    }
+
+    public List<Department> fetchNameInfos() {
+        final Query query = getEntityManager().createQuery(SELECT_DEPARTMENTS_NAME_INFO);
+
+        return query.getResultList();
     }
 }

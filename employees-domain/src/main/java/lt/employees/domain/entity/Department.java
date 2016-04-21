@@ -21,6 +21,15 @@ public class Department extends AbstractEntity {
     @OneToMany(mappedBy = "department")
     private List<Employee> employees = new ArrayList<Employee>();
 
+    public Department() {
+    }
+
+    public Department(final Long id, final String name, final String description) {
+        setId(id);
+        this.name = name;
+        this.description = description;
+    }
+
     public String getName() {
         return name;
     }

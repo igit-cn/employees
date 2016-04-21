@@ -57,4 +57,13 @@ public class DepartmentsRestApi {
         return Response.status(Response.Status.OK).build();
     }
 
+    @GET
+    @Path("nameInfo")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Response fetchDepartmentsNameInfo() {
+        List<DepartmentResponse> departments = DepartmentResponseConverter.convert(departmentsService.fetchNameInfos());
+
+        return Response.status(Response.Status.OK).entity(departments).build();
+    }
+
 }

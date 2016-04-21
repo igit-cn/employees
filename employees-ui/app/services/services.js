@@ -15,5 +15,11 @@ services.factory('EmployeesFactory', function ($resource) {
 });
 
 services.factory('DepartmentsFactory', function ($resource) {
-    return $resource(baseUrl + '/departments/:id');
+    return $resource(baseUrl + '/departments/:id', {}, {
+    	queryNameInfo: {
+    		method: 'GET',
+    		url: baseUrl + '/departments/nameInfo',
+    		isArray: true
+    	}
+    });
 });
