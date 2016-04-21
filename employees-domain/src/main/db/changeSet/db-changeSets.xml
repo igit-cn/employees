@@ -30,8 +30,8 @@
                                  constraintName="fk_department_employee"
                                  referencedTableName="Employee"
                                  referencedColumnNames="id"
-                                 onDelete="RESTRICT"
-                                 onUpdate="CASCADE"
+                                 onDelete="SET NULL"
+                                 onUpdate="NO ACTION"
         />
     </changeSet>
 
