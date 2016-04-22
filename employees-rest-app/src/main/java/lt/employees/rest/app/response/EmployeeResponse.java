@@ -18,6 +18,8 @@ public class EmployeeResponse {
 
 	private AddressResponse address;
 
+	private DepartmentResponse department;
+
 	public Long getId() {
 		return id;
 	}
@@ -48,5 +50,13 @@ public class EmployeeResponse {
 
 	public void setAddress(final AddressResponse address) {
 		this.address = address;
+	}
+
+	public DepartmentResponse getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(final DepartmentResponse department) {
+		this.department = department;
 	}
 }

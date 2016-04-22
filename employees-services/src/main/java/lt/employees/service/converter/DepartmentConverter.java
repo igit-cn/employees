@@ -43,4 +43,12 @@ public class DepartmentConverter {
         return result;
     }
 
+    public static DepartmentDTO convertToNameInfo(Department department) {
+        DepartmentDTO result = new DepartmentDTO();
+        result.setName(department.getName());
+        result.setDescription(department.getDescription());
+
+        return result;
+    }
+
 }

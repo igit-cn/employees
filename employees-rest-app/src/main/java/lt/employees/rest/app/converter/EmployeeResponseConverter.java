@@ -29,6 +29,9 @@ public class EmployeeResponseConverter {
 		if (employee.getAddress() != null) {
 			result.setAddress(AddressResponseConverter.convert(employee.getAddress()));
 		}
+		if (employee.getDepartment() != null) {
+			result.setDepartment(DepartmentResponseConverter.convert(employee.getDepartment()));
+		}
 
 		return result;
 	}

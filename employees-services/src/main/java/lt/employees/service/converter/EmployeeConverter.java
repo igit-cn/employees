@@ -20,6 +20,9 @@ public class EmployeeConverter {
 		if (employee.getAddress() != null) {
 			result.setAddress(AddressConverter.convert(employee.getAddress()));
 		}
+		if (employee.getDepartment() != null) {
+			result.setDepartment(DepartmentConverter.convertToNameInfo(employee.getDepartment()));
+		}
 		
 		return result;
 	}

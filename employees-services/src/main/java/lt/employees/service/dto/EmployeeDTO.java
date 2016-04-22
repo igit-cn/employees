@@ -10,6 +10,8 @@ public class EmployeeDTO {
 
     private AddressDTO address;
 
+	private DepartmentDTO department;
+
 	public Long getId() {
 		return id;
 	}
@@ -41,4 +43,12 @@ public class EmployeeDTO {
     public void setAddress(AddressDTO address) {
         this.address = address;
     }
+
+	public DepartmentDTO getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(final DepartmentDTO department) {
+		this.department = department;
+	}
 }

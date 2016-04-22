@@ -62,7 +62,7 @@ public class Department extends AbstractEntity {
         return employees;
     }
 
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
+    public void addEmployee(Employee employee) {
+        employees.add(employee);
     }
 }

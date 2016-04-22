@@ -41,8 +41,9 @@ public class EmployeesRestApi {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response fetchEmployeeById(@PathParam("id") Long id) {
 		EmployeeDTO employee = employeesService.getEmployeeById(id);
-		
-		return Response.status(Response.Status.OK).entity(employee).build();
+		final EmployeeResponse response = EmployeeResponseConverter.convert(employee);
+
+		return Response.status(Response.Status.OK).entity(response).build();
 	}
 	
 	@POST
