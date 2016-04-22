@@ -16,4 +16,6 @@ public interface EmployeesDAO {
 
 	List<Employee> fetchNamesInfo();
 
+	List<Employee> fetchByDepartmentId(Long departmentId);
+
 }
