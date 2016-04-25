@@ -23,13 +23,6 @@
 			<version>${project.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>lt.employees.domain</groupId>
-			<artifactId>employees-domain</artifactId>
-			<version>${project.version}</version>
-			<scope>runtime</scope>
-		</dependency>
-
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
