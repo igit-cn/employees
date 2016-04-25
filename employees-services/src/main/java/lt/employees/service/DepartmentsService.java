@@ -1,9 +1,10 @@
 package lt.employees.service;
 
-import lt.employees.service.dto.DepartmentDTO;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
+
+import lt.employees.domain.entity.Department;
+
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Service for operations with departments.
@@ -11,14 +12,12 @@ import java.util.List;
 @Transactional
 public interface DepartmentsService {
 
-    List<DepartmentDTO> fetchDepartments();
+    List<Department> fetchDepartments();
 
-    DepartmentDTO getDepartmentById(Long id);
+    Department getDepartmentById(Long id);
 
-    void saveDepartment(DepartmentDTO department);
+    void saveDepartment(Department department);
 
     void deleteDepartment(Long id);
-
-    List<DepartmentDTO> fetchDepartmentsNameInfo();
 
 }

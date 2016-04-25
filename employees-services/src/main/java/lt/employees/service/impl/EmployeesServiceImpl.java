@@ -6,8 +6,6 @@ import lt.employees.domain.dao.EmployeesDAO;
 import lt.employees.domain.entity.ContactInfo;
 import lt.employees.domain.entity.Employee;
 import lt.employees.service.EmployeesService;
-import lt.employees.service.converter.EmployeeConverter;
-import lt.employees.service.dto.EmployeeDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,32 +16,24 @@ public class EmployeesServiceImpl implements EmployeesService {
 	@Autowired
 	private EmployeesDAO employeesDAO;
 
-	public List<EmployeeDTO> fetchEmployees() {
-		List<Employee> employees = employeesDAO.fetchEmployees();
-		
-		return EmployeeConverter.convert(employees);
+	public List<Employee> fetchEmployees() {
+		return employeesDAO.fetchEmployees();
 	}
 
-	public EmployeeDTO getEmployeeById(Long id) {
-		Employee employee = employeesDAO.getEmployeeById(id);
-		return employee == null ? null : EmployeeConverter.convert(employee);
+	public Employee getEmployeeById(Long id) {
+		return employeesDAO.getEmployeeById(id);
 	}
 
-	public void saveEmployee(EmployeeDTO employee) {
-		Employee employeeEntity = EmployeeConverter.convert(employee);
-		final ContactInfo contactInfo = employeeEntity.getContactInfo();
-		contactInfo.setEmployee(employeeEntity);
+	public void saveEmployee(Employee employee) {
+		final ContactInfo contactInfo = employee.getContactInfo();
+		contactInfo.setEmployee(employee);
 		contactInfo.getAddress().setContactInfo(contactInfo);
 
-		employeesDAO.save(employeeEntity);
+		employeesDAO.save(employee);
 	}
 
 	public void deleteEmployee(Long id) {
 		employeesDAO.deleteEmployee(id);
-	}
-
-	public List<EmployeeDTO> fetchEmployeesNameInfo() {
-		return EmployeeConverter.convert(employeesDAO.fetchNamesInfo());
 	}
 
 }

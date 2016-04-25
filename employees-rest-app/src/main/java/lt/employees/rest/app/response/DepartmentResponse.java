@@ -58,4 +58,8 @@ public class DepartmentResponse {
     public List<EmployeeResponse> getEmployees() {
         return employees;
     }
+
+    public void addEmployee(EmployeeResponse employee) {
+        employees.add(employee);
+    }
 }

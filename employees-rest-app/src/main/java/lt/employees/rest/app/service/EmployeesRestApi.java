@@ -1,5 +1,6 @@
 package lt.employees.rest.app.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -12,10 +13,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import lt.employees.domain.entity.Employee;
 import lt.employees.rest.app.converter.EmployeeResponseConverter;
 import lt.employees.rest.app.response.EmployeeResponse;
 import lt.employees.service.EmployeesService;
-import lt.employees.service.dto.EmployeeDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,8 +31,10 @@ public class EmployeesRestApi {
 	@GET
 	@Produces({MediaType.APPLICATION_JSON})
 	public Response fetchEmployees() {
-		final List<EmployeeResponse> employees =
-				EmployeeResponseConverter.convertToResponse(employeesService.fetchEmployees());
+		final List<EmployeeResponse> employees = new ArrayList<EmployeeResponse>();
+		for (Employee employee : employeesService.fetchEmployees()) {
+			employees.add(EmployeeResponseConverter.convert(employee));
+		}
 
 		return Response.status(Response.Status.OK).entity(employees).build();
 	}
@@ -40,8 +43,7 @@ public class EmployeesRestApi {
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response fetchEmployeeById(@PathParam("id") Long id) {
-		EmployeeDTO employee = employeesService.getEmployeeById(id);
-		final EmployeeResponse response = EmployeeResponseConverter.convert(employee);
+		final EmployeeResponse response = EmployeeResponseConverter.convert(employeesService.getEmployeeById(id));
 
 		return Response.status(Response.Status.OK).entity(response).build();
 	}
@@ -68,9 +70,12 @@ public class EmployeesRestApi {
 	@Path(("nameInfo"))
 	@Produces({MediaType.APPLICATION_JSON})
 	public Response fetchEmployeesNameInfo() {
-		final List<EmployeeResponse> EmployeesNameInfoResponses = EmployeeResponseConverter.convertToResponse(employeesService.fetchEmployeesNameInfo());
+		final List<EmployeeResponse> response = new ArrayList<EmployeeResponse>();
+		for (Employee employee : employeesService.fetchEmployees()) {
+			response.add(EmployeeResponseConverter.convertNameInfo(employee));
+		}
 
-		return Response.status(Response.Status.OK).entity(EmployeesNameInfoResponses).build();
+		return Response.status(Response.Status.OK).entity(response).build();
 	}
 
 }

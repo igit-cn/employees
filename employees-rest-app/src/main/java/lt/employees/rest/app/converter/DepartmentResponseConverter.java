@@ -1,47 +1,54 @@
 package lt.employees.rest.app.converter;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import lt.employees.domain.entity.Department;
+import lt.employees.domain.entity.Employee;
 import lt.employees.rest.app.response.DepartmentResponse;
-import lt.employees.service.dto.DepartmentDTO;
+import lt.employees.rest.app.response.EmployeeResponse;
 
 /**
  * Converter class for department response.
  */
 public class DepartmentResponseConverter {
 
-    public static DepartmentResponse convert(DepartmentDTO department) {
+    public static DepartmentResponse convert(Department department) {
         DepartmentResponse result = new DepartmentResponse();
         result.setId(department.getId());
         result.setName(department.getName());
         result.setDescription(department.getDescription());
+
         if (department.getDirector() != null) {
-            result.setDirector(EmployeeResponseConverter.convert(department.getDirector()));
+            result.setDirector(EmployeeResponseConverter.convertNameInfo(department.getDirector()));
         }
-        result.getEmployees().addAll(EmployeeResponseConverter.convertToResponse(department.getEmployees()));
 
-        return result;
-    }
-
-    public static List<DepartmentResponse> convert(List<DepartmentDTO> departments) {
-        List<DepartmentResponse> result = new ArrayList<DepartmentResponse>();
-        for (DepartmentDTO department : departments) {
-            result.add(convert(department));
+        for (Employee employee : department.getEmployees()) {
+            result.addEmployee(EmployeeResponseConverter.convertNameInfo(employee));
         }
 
         return result;
     }
 
-    public static DepartmentDTO convert(DepartmentResponse department) {
-        DepartmentDTO result = new DepartmentDTO();
+    public static Department convert(DepartmentResponse department) {
+        Department result = new Department();
         result.setId(department.getId());
         result.setName(department.getName());
         result.setDescription(department.getDescription());
+
         if (department.getDirector() != null) {
             result.setDirector(EmployeeResponseConverter.convert(department.getDirector()));
         }
-        result.getEmployees().addAll(EmployeeResponseConverter.convertToDTO(department.getEmployees()));
+
+        for (EmployeeResponse employeeResponse : department.getEmployees()) {
+            result.addEmployee(EmployeeResponseConverter.convert(employeeResponse));
+        }
+
+        return result;
+    }
+
+    public static DepartmentResponse convertNameInfo(Department department) {
+        DepartmentResponse result = new DepartmentResponse();
+        result.setId(department.getId());
+        result.setName(department.getName());
+        result.setDescription(department.getDescription());
 
         return result;
     }
