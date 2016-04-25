@@ -1,6 +1,10 @@
 package lt.employees.domain.entity;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="Employee")
@@ -13,7 +17,7 @@ public class Employee extends AbstractEntity {
 	private String lastName;
 
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
-	private Address address;
+	private ContactInfo contactInfo;
 
 	@OneToOne
 	private Department department;
@@ -43,19 +47,19 @@ public class Employee extends AbstractEntity {
 		this.lastName = lastName;
 	}
 
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
 	public Department getDepartment() {
 		return department;
 	}
 
 	public void setDepartment(Department department) {
 		this.department = department;
+	}
+
+	public ContactInfo getContactInfo() {
+		return contactInfo;
+	}
+
+	public void setContactInfo(final ContactInfo contactInfo) {
+		this.contactInfo = contactInfo;
 	}
 }

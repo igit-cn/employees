@@ -15,10 +15,72 @@
             <column name="lastName" type="varchar(50)">
                 <constraints nullable="false" />
             </column>
+            <column name="department_id" type="int" />
         </createTable>
     </changeSet>
 
     <changeSet id="002" author="Jurijus">
+        <createTable tableName="Department">
+            <column name="id" autoIncrement="true" type="int">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="description" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="director_id" type="int">
+                <constraints nullable="true" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="003" author="Jurijus">
+        <addForeignKeyConstraint baseTableName="Department"
+                                 baseColumnNames="director_id"
+                                 constraintName="fk_department_employee"
+                                 referencedTableName="Employee"
+                                 referencedColumnNames="id"
+                                 onDelete="SET NULL"
+                                 onUpdate="CASCADE"
+        />
+    </changeSet>
+
+    <changeSet id="004" author="Jurijus">
+        <addForeignKeyConstraint baseTableName="Employee"
+                                 baseColumnNames="department_id"
+                                 constraintName="fk_employee_department"
+                                 referencedTableName="Department"
+                                 referencedColumnNames="id"
+                                 onDelete="SET NULL"
+                                 onUpdate="CASCADE"
+        />
+    </changeSet>
+
+    <changeSet id="005" author="Jurijus">
+        <createTable tableName="ContactInfo">
+            <column name="id" autoIncrement="true" type="int">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="employee_id" type="int">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    
+    <changeSet id="006" author="Jurijus">
+        <addForeignKeyConstraint baseTableName="ContactInfo"
+                                 baseColumnNames="employee_id"
+                                 constraintName="fk_contactInfo_employee"
+                                 referencedTableName="Employee"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"
+        />
+    </changeSet>
+
+    <changeSet id="007" author="Jurijus">
         <createTable tableName="Address">
             <column name="id" autoIncrement="true" type="int">
                 <constraints nullable="false" primaryKey="true" />
@@ -26,17 +88,17 @@
             <column name="country" type="varchar(255)" />
             <column name="city" type="varchar(255)" />
             <column name="address" type="varchar(255)" />
-            <column name="employee_id" type="int">
+            <column name="contactInfo_id" type="int">
                 <constraints nullable="false" />
             </column>
         </createTable>
     </changeSet>
-    
-    <changeSet id="003" author="Jurijus">
+
+    <changeSet id="008" author="Jurijus">
         <addForeignKeyConstraint baseTableName="Address"
-                                 baseColumnNames="employee_id"
-                                 constraintName="fk_address_employee"
-                                 referencedTableName="Employee"
+                                 baseColumnNames="contactInfo_id"
+                                 constraintName="fk_address_contactInfo"
+                                 referencedTableName="ContactInfo"
                                  referencedColumnNames="id"
                                  onDelete="CASCADE"
                                  onUpdate="CASCADE"

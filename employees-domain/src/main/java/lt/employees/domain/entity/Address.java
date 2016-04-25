@@ -18,7 +18,7 @@ public class Address extends AbstractEntity {
     private String address;
 
     @OneToOne
-    private Employee employee;
+    private ContactInfo contactInfo;
 
     public String getCountry() {
         return country;
@@ -44,12 +44,12 @@ public class Address extends AbstractEntity {
         this.address = address;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public ContactInfo getContactInfo() {
+        return contactInfo;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setContactInfo(final ContactInfo contactInfo) {
+        this.contactInfo = contactInfo;
     }
 
     @Override

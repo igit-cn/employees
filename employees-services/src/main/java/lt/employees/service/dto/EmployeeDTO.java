@@ -8,9 +8,9 @@ public class EmployeeDTO {
 	
 	private String lastName;
 
-    private AddressDTO address;
-
 	private DepartmentDTO department;
+
+	private ContactInfoDTO contactInfo;
 
 	public Long getId() {
 		return id;
@@ -36,19 +36,19 @@ public class EmployeeDTO {
 		this.lastName = lastName;
 	}
 
-    public AddressDTO getAddress() {
-        return address;
-    }
-
-    public void setAddress(AddressDTO address) {
-        this.address = address;
-    }
-
 	public DepartmentDTO getDepartment() {
 		return department;
 	}
 
 	public void setDepartment(final DepartmentDTO department) {
 		this.department = department;
+	}
+
+	public ContactInfoDTO getContactInfo() {
+		return contactInfo;
+	}
+
+	public void setContactInfo(final ContactInfoDTO contactInfo) {
+		this.contactInfo = contactInfo;
 	}
 }

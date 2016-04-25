@@ -3,6 +3,7 @@ package lt.employees.service.impl;
 import java.util.List;
 
 import lt.employees.domain.dao.EmployeesDAO;
+import lt.employees.domain.entity.ContactInfo;
 import lt.employees.domain.entity.Employee;
 import lt.employees.service.EmployeesService;
 import lt.employees.service.converter.EmployeeConverter;
@@ -30,7 +31,9 @@ public class EmployeesServiceImpl implements EmployeesService {
 
 	public void saveEmployee(EmployeeDTO employee) {
 		Employee employeeEntity = EmployeeConverter.convert(employee);
-		employeeEntity.getAddress().setEmployee(employeeEntity);
+		final ContactInfo contactInfo = employeeEntity.getContactInfo();
+		contactInfo.setEmployee(employeeEntity);
+		contactInfo.getAddress().setContactInfo(contactInfo);
 
 		employeesDAO.save(employeeEntity);
 	}

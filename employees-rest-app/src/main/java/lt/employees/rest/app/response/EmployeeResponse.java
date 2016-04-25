@@ -16,9 +16,9 @@ public class EmployeeResponse {
 
 	private String lastName;
 
-	private AddressResponse address;
-
 	private DepartmentResponse department;
+
+	private ContactInfoResponse contactInfo;
 
 	public Long getId() {
 		return id;
@@ -44,19 +44,19 @@ public class EmployeeResponse {
 		this.lastName = lastName;
 	}
 
-	public AddressResponse getAddress() {
-		return address;
-	}
-
-	public void setAddress(final AddressResponse address) {
-		this.address = address;
-	}
-
 	public DepartmentResponse getDepartment() {
 		return department;
 	}
 
 	public void setDepartment(final DepartmentResponse department) {
 		this.department = department;
+	}
+
+	public ContactInfoResponse getContactInfo() {
+		return contactInfo;
+	}
+
+	public void setContactInfo(final ContactInfoResponse contactInfo) {
+		this.contactInfo = contactInfo;
 	}
 }
