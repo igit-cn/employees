@@ -5,7 +5,7 @@
     <form class="form-horizontal" name="departmentForm" novalidate>
         <div class="form-group" ng-class="{'has-error': departmentForm.name.$invalid && !departmentForm.name.$pristine}">
             <label class="col-sm-2 control-label">Name:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-4">
                 <input type="text" class="form-control" name="name" ng-model="department.name" placeholder="Name" required>
                 <p ng-show="departmentForm.name.$invalid && !departmentForm.name.$pristine" class="help-block">Name is required.</p>
             </div>
@@ -13,7 +13,7 @@
 
         <div class="form-group" ng-class="{'has-error': departmentForm.description.$invalid && !departmentForm.description.$pristine}">
             <label class="col-sm-2 control-label">Description:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-4">
                 <textarea class="form-control" name="description" ng-model="department.description" placeholder="Description" required></textarea>
                 <p ng-show="departmentForm.description.$invalid && !departmentForm.description.$pristine" class="help-block">Description is required.</p>
             </div>
@@ -21,7 +21,7 @@
 
         <div class="form-group">
             <label class="col-sm-2 control-label">Director:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-4">
                 <select class="form-control" ng-model="department.director"
                         ng-options="employee as employee.firstName + ' ' + employee.lastName for employee in employees track by employee.id">
                     <option/>
@@ -31,7 +31,7 @@
 
         <div class="form-group">
             <label class="col-sm-2 control-label">Employees:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-4">
                 <select class="form-control" name="employees"  multiple
                         ng-options="employee as employee.firstName + ' ' + employee.lastName for employee in employees track by employee.id"
                         ng-model="department.employees">
