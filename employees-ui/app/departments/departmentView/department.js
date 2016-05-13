@@ -1,35 +1,22 @@
 'use strict';
 
-angular.module('employeesApp.departmentView', ['ngRoute'])
+var departmentViewCtrl = angular.module('departmentViewCtrl', ['ngRoute']);
 
-.config(['$routeProvider', function($routeProvider) {
-  var templateUrl = 'departments/departmentView/department.html';
-  var controllerName = 'departmentViewCtrl'
+departmentViewCtrl.controller('departmentViewCtrl', ['$scope', 'DepartmentsFactory', 'EmployeesFactory', '$location', '$routeParams',
+    function ($scope, DepartmentsFactory, EmployeesFactory, $location, $routeParams) {
+        $scope.employees = EmployeesFactory.queryNameInfo();
 
-  $routeProvider.when('/departmentView/:id', {
-    templateUrl: templateUrl,
-    controller: controllerName
-  }).when('/departmentView', {
-    templateUrl: templateUrl,
-    controller: controllerName
-  });
-}])
+        if ($routeParams.id != undefined) {
+            $scope.department = DepartmentsFactory.get({id: $routeParams.id})
+        }
 
-.controller('departmentViewCtrl', ['$scope', 'DepartmentsFactory', 'EmployeesFactory','$location', '$routeParams',
-	function($scope, DepartmentsFactory, EmployeesFactory, $location, $routeParams) {
-  $scope.employees = EmployeesFactory.queryNameInfo();
+        $scope.saveDepartment = function () {
+            DepartmentsFactory.save($scope.department, function () {
+                $location.path('/departmentsView');
+            });
+        }
 
-  if ($routeParams.id != undefined) {
-    $scope.department = DepartmentsFactory.get({id: $routeParams.id})
-  }
-
-  $scope.saveDepartment = function() {
-  	DepartmentsFactory.save($scope.department, function() {
-    	$location.path('/departmentsView');
-    });
-  }
-
-  $scope.cancel = function() {
-  	$location.path('/departmentsView');
-  }
-}]);
+        $scope.cancel = function () {
+            $location.path('/departmentsView');
+        }
+    }]);
