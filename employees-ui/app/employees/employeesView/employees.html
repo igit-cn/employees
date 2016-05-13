@@ -1,36 +1,36 @@
 <div class="container">
-    <h3>Employees</h3>
-    <table class="table table-striped">
-        <thead>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th></th>
-            <th></th>
-        </thead>
+	<h3>Employees</h3>
+	<table class="table table-striped">
+		<thead>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th></th>
+		<th></th>
+		</thead>
 
-        <tbody>
-            <tr ng-repeat="employee in employees">
-                <td>{{employee.firstName}}</td>
-                <td>{{employee.lastName}}</td>
+		<tbody>
+		<tr ng-repeat="employee in employees">
+			<td>{{employee.firstName}}</td>
+			<td>{{employee.lastName}}</td>
 
-                <td>
-                    <a class="btn" ng-click="editOrCreate(employee.id)">
-                        <span class="glyphicon glyphicon-pencil">&nbsp;Edit</span>
-                    </a>
-                </td>
+			<td>
+				<a class="btn" ng-click="editOrCreate(employee.id)">
+					<span class="glyphicon glyphicon-pencil">&nbsp;Edit</span>
+				</a>
+			</td>
 
-                <td>
-                    <a class="btn" ng-click="deleteEmployee(employee.id)">
-                        <span class="glyphicon glyphicon-remove">&nbsp;Delete</span>
-                    </a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+			<td>
+				<a class="btn" ng-click="deleteEmployee(employee.id)">
+					<span class="glyphicon glyphicon-remove">&nbsp;Delete</span>
+				</a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
 
-    <div>
-        <button class="btn" ng-click="editOrCreate()">
-            <span class="glyphicon glyphicon-plus">&nbsp;Create New Employee</span>
-        </button>
-    </div>
+	<div>
+		<button class="btn" ng-click="editOrCreate()">
+			<span class="glyphicon glyphicon-plus">&nbsp;Create New Employee</span>
+		</button>
+	</div>
 </div>

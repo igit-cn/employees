@@ -4,7 +4,7 @@
 var employeesApp = angular.module('employeesApp', [
     'ngRoute',
 
-    'employeesApp.services',
+    'services',
     'employeesViewCtrl',
     'employeeViewCtrl',
     'departmentsViewCtrl',

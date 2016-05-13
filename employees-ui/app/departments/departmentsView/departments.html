@@ -1,37 +1,37 @@
 <div class="container">
-    <h3>Departments</h3>
+	<h3>Departments</h3>
 
-    <table class="table table-striped">
-        <thead>
-        <th>Name</th>
-        <th>Description</th>
-        <th></th>
-        <th></th>
-        </thead>
+	<table class="table table-striped">
+		<thead>
+		<th>Name</th>
+		<th>Description</th>
+		<th></th>
+		<th></th>
+		</thead>
 
-        <tbody>
-        <tr ng-repeat="department in departments">
-            <td>{{department.name}}</td>
-            <td>{{department.description}}</td>
+		<tbody>
+		<tr ng-repeat="department in departments">
+			<td>{{department.name}}</td>
+			<td>{{department.description}}</td>
 
-            <td>
-                <a class="btn" ng-click="editOrCreate(department.id)">
-                    <span class="glyphicon glyphicon-pencil">&nbsp;Edit</span>
-                </a>
-            </td>
+			<td>
+				<a class="btn" ng-click="editOrCreate(department.id)">
+					<span class="glyphicon glyphicon-pencil">&nbsp;Edit</span>
+				</a>
+			</td>
 
-            <td>
-                <a class="btn" ng-click="deleteDepartment(department.id)">
-                    <span class="glyphicon glyphicon-remove">&nbsp;Delete</span>
-                </a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+			<td>
+				<a class="btn" ng-click="deleteDepartment(department.id)">
+					<span class="glyphicon glyphicon-remove">&nbsp;Delete</span>
+				</a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
 
-    <div>
-        <button class="btn" ng-click="editOrCreate()">
-            <span class="glyphicon glyphicon-plus">&nbsp;Create New Department</span>
-        </button>
-    </div>
+	<div>
+		<button class="btn" ng-click="editOrCreate()">
+			<span class="glyphicon glyphicon-plus">&nbsp;Create New Department</span>
+		</button>
+	</div>
 </div>
