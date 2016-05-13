@@ -44,7 +44,6 @@ public class DepartmentsServiceImpl implements DepartmentsService {
         for (Employee employee : department.getEmployees()) {
             final Employee employeeFromDB = employeesDAO.getEmployeeById(employee.getId());
             employeeFromDB.setDepartment(department);
-//            department.addEmployee(employeeFromDB);
         }
 
         departmentsDAO.save(department);
